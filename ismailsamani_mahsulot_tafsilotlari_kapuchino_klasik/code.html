@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "error-container": "#ffdad6", "surface-container-highest": "#e5e2dd", "tertiary-container": "#451f03", "inverse-surface": "#31302d", "primary-fixed-dim": "#e9bda7", "secondary-fixed-dim": "#f9b989", "tertiary-fixed": "#ffdbc8", "on-tertiary": "#ffffff", "on-primary-fixed": "#2d1608", "background": "#fcf9f4", "tertiary": "#280e00", "on-secondary-fixed-variant": "#673c16", "secondary-container": "#ffbf8e", "secondary-fixed": "#ffdcc3", "surface-container-high": "#ebe8e3", "surface-dim": "#dcdad5", "on-tertiary-fixed": "#321300", "surface-variant": "#e5e2dd", "on-tertiary-container": "#be835f", "on-primary-container": "#af8874", "secondary": "#83532b", "on-surface": "#1c1c19", "primary-fixed": "#ffdbca", "on-primary-fixed-variant": "#5e402f", "on-surface-variant": "#50443f", "on-error": "#ffffff", "primary-container": "#3d2314", "on-error-container": "#93000a", "surface-tint": "#795745", "surface-container": "#f0ede9", "surface-container-lowest": "#ffffff", "outline": "#82746e", "inverse-primary": "#e9bda7", "surface-bright": "#fcf9f4", "on-primary": "#ffffff", "surface": "#fcf9f4", "error": "#ba1a1a", "tertiary-fixed-dim": "#fab890", "on-secondary-fixed": "#2f1500", "on-secondary-container": "#794b24", "surface-container-low": "#f6f3ee", "inverse-on-surface": "#f3f0eb", "on-tertiary-fixed-variant": "#693b1d", "on-secondary": "#ffffff", "outline-variant": "#d4c3bc", "on-background": "#1c1c19", "primary": "#250f03" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-md": "1rem", "space-sm": "0.5rem", "space-xl": "2rem", "margin": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter-desktop": "1.25rem", "margin-desktop": "2rem", "gutter": "0.75rem" }, fontFamily: { "label-sm": ["Plus Jakarta Sans"], "headline-xl": ["Playfair Display"], "headline-sm": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Playfair Display"], "headline-lg": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"] }, fontSize: { "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.06em", fontWeight: "700" }], "headline-xl": ["36px", { lineHeight: "44px", fontWeight: "700" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }], "headline-xl-mobile": ["28px", { lineHeight: "34px", fontWeight: "700" }], "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "600" }], "headline-lg-mobile": ["22px", { lineHeight: "28px", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "headline-md": ["20px", { lineHeight: "26px", fontWeight: "600" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fcf9f4;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface text-on-surface antialiased"><div class="min-h-screen max-w-[480px] mx-auto relative flex flex-col bg-surface"><header class="fixed top-0 max-w-[480px] w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-md flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-primary hover:text-secondary transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-primary tracking-tight truncate max-w-[190px]">Product Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Share item" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">share</span></button><button aria-label="Toggle favorite" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface-variant hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">favorite</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
+<!-- Toast Notification Container -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 transform -translate-y-4 px-space-md py-space-sm bg-primary-container text-surface rounded-full shadow-xl flex items-center gap-space-sm max-w-[90%]" id="toast">
+<span class="material-symbols-outlined text-[20px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-lg text-label-lg tracking-wide text-surface" id="toast-text">Savatchaga qo'shildi! 🎉</span>
+</div>
+<!-- Hero Visual Showcase -->
+<div class="relative w-full px-space-md pt-space-xs pb-space-sm">
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Artisanal classic cappuccino with intricate silky rosette latte art poured gracefully in a warm matte terracotta ceramic cup, setting on a rustic textured wooden coffee bar counter with fresh roasted coffee beans scattered gently around, warm cinematic morning sunlight, cozy specialty boutique coffee house aesthetic, rich warm espresso browns and velvety cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZiFG8Y0MUMc6xx_7BZy2UGkBAsLu3-Dh0S5gBlNl5qHdiDiMRV-TdZkXq0Wv5-evArsar8yD89Bzp0GGp4KDvN1sgSnpPQ0NyxrAjN2fYwTEs1oagGRXpe-u9p_BV_z1m8v0i9N0Zg8KWwzSwMbC3OrGvlfylZ8cA2TLbUtMHqwSq1Luh4zXF-TQ6jf4wqhjNmTsNz2q7SKd5tXZhiz-SRvh2bmB2NSKaH24Qe78">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<!-- Top floating badges on photo -->
+<div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+<span class="bg-surface/90 backdrop-blur-md px-space-sm py-1 rounded-full text-primary font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+          Bestseller 4.9 (1.2k+)
+        </span>
+<span class="bg-primary/85 backdrop-blur-md px-space-sm py-1 rounded-full text-primary-fixed font-label-sm text-label-sm tracking-wider uppercase shadow-sm">
+          Specialty Arabica
+        </span>
+</div>
+<!-- Bottom overlay content on image -->
+<div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-on-primary">
+<div>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary-fixed">Yangi hosil 2024</span>
+<p class="font-body-sm text-body-sm text-surface-container-low/90">Efiopiya Yirgacheffe &amp; Sidamo</p>
+</div>
+<div class="w-9 h-9 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-surface">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Title & Attributes Card -->
+<div class="px-space-md py-space-sm">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-secondary tracking-widest">Espresso &amp; Sut</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Kapuchino Klasik</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through">36 000</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold" id="header-price">32 000 so'm</span>
+</div>
+</div>
+<!-- Metadata Pills Bar -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<div class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">schedule</span>
+          15-20 daqiqa
+        </div>
+<div class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">bolt</span>
+          140 kkal
+        </div>
+<div class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">coffee_maker</span>
+          O'rta qovurilgan
+        </div>
+</div>
+<!-- Editorial Description -->
+<p class="font-body-md text-body-md text-on-surface-variant pt-1 leading-relaxed">
+        Yangi qovurilgan Efiopiya Arabica donlaridan tayyorlangan boy espresso va baxmaldek nozik sut ko'pigi uyg'unligi. Shokolad va yong'oqli nozik ta'm bilan to'ldirilgan.
+      </p>
+</div>
+</div>
+<!-- Interactive Customization Sections -->
+<div class="px-space-md flex flex-col gap-space-md pb-space-lg">
+<!-- 1. Size Selection (Hajmi) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">expand</span>
+<span class="font-headline-sm text-headline-sm text-primary">Hajmi</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase bg-secondary-fixed/50 px-2 py-0.5 rounded-full">Majburiy</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-1" id="size-options">
+<!-- Small -->
+<button class="size-btn flex flex-col items-center justify-between p-space-sm rounded-lg bg-surface-container-low text-on-surface transition-all active:scale-[0.98] text-center min-h-[96px]" data-price="28000" data-size="kichik" onclick="selectSize(this)" type="button">
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant mb-1">coffee</span>
+<span class="font-label-lg text-label-lg text-primary">Kichik</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">250 ml</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">28 000 so'm</span>
+</button>
+<!-- Medium (Default selected) -->
+<button class="size-btn flex flex-col items-center justify-between p-space-sm rounded-lg bg-primary-container text-on-primary shadow-sm transition-all active:scale-[0.98] text-center min-h-[96px]" data-price="32000" data-size="orta" onclick="selectSize(this)" type="button">
+<span class="material-symbols-outlined text-[24px] text-secondary-container mb-1">coffee</span>
+<span class="font-label-lg text-label-lg text-surface">O'rta</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim">350 ml</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed font-semibold mt-1">32 000 so'm</span>
+</button>
+<!-- Large -->
+<button class="size-btn flex flex-col items-center justify-between p-space-sm rounded-lg bg-surface-container-low text-on-surface transition-all active:scale-[0.98] text-center min-h-[96px]" data-price="38000" data-size="katta" onclick="selectSize(this)" type="button">
+<span class="material-symbols-outlined text-[26px] text-on-surface-variant mb-1">coffee</span>
+<span class="font-label-lg text-label-lg text-primary">Katta</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">450 ml</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">38 000 so'm</span>
+</button>
+</div>
+</div>
+<!-- 2. Milk Options (Sut turi) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">water_drop</span>
+<span class="font-headline-sm text-headline-sm text-primary">Sut turi</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1 ta tanlang</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-1" id="milk-options">
+<!-- Standard Milk (Selected) -->
+<label class="milk-item flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 accent-primary" data-name="Standart (Klassik sut)" name="milk" onchange="updateCalculation()" type="radio" value="0">
+<span class="font-body-md text-body-md text-primary font-medium">Standart (Klassik sut)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Standart</span>
+</label>
+<!-- Almond Milk -->
+<label class="milk-item flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-name="Bodom suti" name="milk" onchange="updateCalculation()" type="radio" value="6000">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Bodom suti</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">O'simlik asosidagi xushbo'y</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+6 000 so'm</span>
+</label>
+<!-- Oat Milk -->
+<label class="milk-item flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-name="Suli suti" name="milk" onchange="updateCalculation()" type="radio" value="6000">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Suli suti (Oat)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Qaymoqli boy ta'm</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+6 000 so'm</span>
+</label>
+<!-- Coconut Milk -->
+<label class="milk-item flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-name="Kokos suti" name="milk" onchange="updateCalculation()" type="radio" value="7000">
+<span class="font-body-md text-body-md text-primary font-medium">Kokos suti</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+7 000 so'm</span>
+</label>
+<!-- Lactose Free -->
+<label class="milk-item flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-name="Laktazasiz" name="milk" onchange="updateCalculation()" type="radio" value="4000">
+<span class="font-body-md text-body-md text-primary font-medium">Laktazasiz sut</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+4 000 so'm</span>
+</label>
+</div>
+</div>
+<!-- 3. Sugar Level (Shakar darajasi) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">cookie</span>
+<span class="font-headline-sm text-headline-sm text-primary">Shakar darajasi</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="selected-sugar-label">50% (Kam shakar)</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-1" id="sugar-options">
+<button class="sugar-btn py-2.5 px-space-sm rounded-lg bg-surface-container-low text-on-surface text-center transition-all" data-sugar="0" onclick="selectSugar(this, '0% (Shakarsiz)')" type="button">
+<span class="font-label-md text-label-md block text-primary">0%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Shakarsiz</span>
+</button>
+<button class="sugar-btn py-2.5 px-space-sm rounded-lg bg-primary-container text-surface text-center shadow-sm transition-all" data-sugar="50" onclick="selectSugar(this, '50% (Kam shakar)')" type="button">
+<span class="font-label-md text-label-md block text-surface">50%</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim block">Kam shakar</span>
+</button>
+<button class="sugar-btn py-2.5 px-space-sm rounded-lg bg-surface-container-low text-on-surface text-center transition-all" data-sugar="100" onclick="selectSugar(this, '100% (Standart)')" type="button">
+<span class="font-label-md text-label-md block text-primary">100%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Standart</span>
+</button>
+</div>
+</div>
+<!-- 4. Add-ons / Extras (Qo'shimchalar) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">add_circle</span>
+<span class="font-headline-sm text-headline-sm text-primary">Qo'shimchalar</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ixtiyoriy</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-1">
+<!-- Extra Shot -->
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-4 h-4 accent-primary rounded" onchange="updateCalculation()" type="checkbox" value="7000">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Ekstra Espresso shot</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+30ml quvvatli espresso</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+7 000 so'm</span>
+</label>
+<!-- Vanilla Syrup -->
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-4 h-4 accent-primary rounded" onchange="updateCalculation()" type="checkbox" value="5000">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Madagaskar Vanil siropi</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tabiiy vanil ekstrakti</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+5 000 so'm</span>
+</label>
+<!-- Cinnamon -->
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-4 h-4 accent-primary rounded" onchange="updateCalculation()" type="checkbox" value="0">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Dolchin / Koritsa sepish</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Xushbo'y tsexon dolchini</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Bepul</span>
+</label>
+</div>
+</div>
+<!-- 5. Barista Note (Barista uchun eslatma) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">edit_note</span>
+<span class="font-headline-sm text-headline-sm text-primary">Barista uchun maxsus eslatma</span>
+</div>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-low text-primary placeholder-on-surface-variant/70 font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors resize-none" placeholder="Masalan: juda issiq bo'lsin yoki stakanga ism yozing..." rows="2"></textarea>
+</div>
+<!-- Barista Craftsmanship Guarantee Badge -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary">Qahvaxonada tayyorlanadi</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Professional SCA sertifikatli baristalar tomonidan har bir chashka mehr bilan uzatiladi.</span>
+</div>
+</div>
+</div>
+<!-- Bottom Dynamic Action Bar (Injected overlay style inside container bounds) -->
+<div class="fixed bottom-0 max-w-[480px] w-full z-40 bg-surface/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(61,35,20,0.08)] px-space-md py-space-sm pb-safe"><div class="flex items-center gap-space-md justify-between"><div class="flex items-center bg-surface-container-high rounded-full p-1 shadow-sm"><button aria-label="Kamaytirish" class="w-9 h-9 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center hover:bg-surface transition-colors active:scale-95" onclick="changeQuantity(-1)" type="button"><span class="material-symbols-outlined text-[18px]">remove</span></button><span class="w-8 text-center font-label-lg text-label-lg text-primary font-bold" id="item-quantity">1</span><button aria-label="Ko'paytirish" class="w-9 h-9 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center hover:bg-surface transition-colors active:scale-95" onclick="changeQuantity(1)" type="button"><span class="material-symbols-outlined text-[18px]">add</span></button></div><button class="flex-1 h-12 rounded-full bg-primary-container text-surface flex items-center justify-between px-space-md shadow-md hover:bg-secondary transition-all active:scale-[0.98]" onclick="addToCart()" type="button"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-secondary-container">local_mall</span><span class="font-label-lg text-label-lg text-surface tracking-wide">Qo'shish</span></div><div class="flex items-center gap-1"><span class="font-headline-sm text-headline-sm text-surface font-semibold" id="total-price-bar">32 000 so'm</span></div></button></div></div>
+</div>
+<script>
+  let basePrice = 32000;
+  let quantity = 1;
+
+  function formatPrice(amount) {
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " so'm";
+  }
+
+  function selectSize(element) {
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.className = "size-btn flex flex-col items-center justify-between p-space-sm rounded-lg bg-surface-container-low text-on-surface transition-all active:scale-[0.98] text-center min-h-[96px]";
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon) icon.className = "material-symbols-outlined text-[24px] text-on-surface-variant mb-1";
+      const title = btn.querySelector('span:nth-child(2)');
+      if (title) title.className = "font-label-lg text-label-lg text-primary";
+      const subtitle = btn.querySelector('span:nth-child(3)');
+      if (subtitle) subtitle.className = "font-body-sm text-body-sm text-on-surface-variant";
+      const price = btn.querySelector('span:nth-child(4)');
+      if (price) price.className = "font-label-sm text-label-sm text-secondary font-semibold mt-1";
+    });
+
+    element.className = "size-btn flex flex-col items-center justify-between p-space-sm rounded-lg bg-primary-container text-on-primary shadow-sm transition-all active:scale-[0.98] text-center min-h-[96px]";
+    const icon = element.querySelector('.material-symbols-outlined');
+    if (icon) icon.className = "material-symbols-outlined text-[24px] text-secondary-container mb-1";
+    const title = element.querySelector('span:nth-child(2)');
+    if (title) title.className = "font-label-lg text-label-lg text-surface";
+    const subtitle = element.querySelector('span:nth-child(3)');
+    if (subtitle) subtitle.className = "font-body-sm text-body-sm text-primary-fixed-dim";
+    const price = element.querySelector('span:nth-child(4)');
+    if (price) price.className = "font-label-sm text-label-sm text-secondary-fixed font-semibold mt-1";
+
+    basePrice = parseInt(element.getAttribute('data-price'), 10);
+    document.getElementById('header-price').textContent = formatPrice(basePrice);
+    updateCalculation();
+  }
+
+  function selectSugar(element, label) {
+    document.querySelectorAll('.sugar-btn').forEach(btn => {
+      btn.className = "sugar-btn py-2.5 px-space-sm rounded-lg bg-surface-container-low text-on-surface text-center transition-all";
+      const percent = btn.querySelector('span:first-child');
+      const text = btn.querySelector('span:last-child');
+      if (percent) percent.className = "font-label-md text-label-md block text-primary";
+      if (text) text.className = "font-body-sm text-body-sm text-on-surface-variant block";
+    });
+
+    element.className = "sugar-btn py-2.5 px-space-sm rounded-lg bg-primary-container text-surface text-center shadow-sm transition-all";
+    const percent = element.querySelector('span:first-child');
+    const text = element.querySelector('span:last-child');
+    if (percent) percent.className = "font-label-md text-label-md block text-surface";
+    if (text) text.className = "font-body-sm text-body-sm text-primary-fixed-dim block";
+
+    document.getElementById('selected-sugar-label').textContent = label;
+  }
+
+  function changeQuantity(delta) {
+    quantity = Math.max(1, quantity + delta);
+    document.getElementById('item-quantity').textContent = quantity;
+    updateCalculation();
+  }
+
+  function updateCalculation() {
+    let extraSum = 0;
+
+    // Milk selection
+    const selectedMilk = document.querySelector('input[name="milk"]:checked');
+    if (selectedMilk) {
+      extraSum += parseInt(selectedMilk.value, 10);
+    }
+
+    // Addons
+    document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
+      extraSum += parseInt(cb.value, 10);
+    });
+
+    const singleUnitPrice = basePrice + extraSum;
+    const finalTotal = singleUnitPrice * quantity;
+
+    document.getElementById('total-price-bar').textContent = formatPrice(finalTotal);
+  }
+
+  function addToCart() {
+    const toast = document.getElementById('toast');
+    toast.classList.remove('opacity-0', '-translate-y-4');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', '-translate-y-4');
+    }, 2400);
+  }
+</script></main></div>
+
+</body></html>

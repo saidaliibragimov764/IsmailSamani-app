@@ -1,0 +1,1109 @@
+<!DOCTYPE html><html lang="uz" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<meta content="mobile_stack" name="shell-type">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#fab890",
+            "outline": "#82746e",
+            "on-primary-container": "#af8874",
+            "on-primary-fixed-variant": "#5e402f",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#794b24",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#693b1d",
+            "surface-dim": "#dcdad5",
+            "on-background": "#1c1c19",
+            "surface-container-low": "#f6f3ee",
+            "secondary": "#83532b",
+            "on-surface-variant": "#50443f",
+            "inverse-on-surface": "#f3f0eb",
+            "surface": "#fcf9f4",
+            "primary-fixed-dim": "#e9bda7",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#321300",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f0ede9",
+            "tertiary": "#280e00",
+            "primary": "#250f03",
+            "tertiary-fixed": "#ffdbc8",
+            "on-surface": "#1c1c19",
+            "on-secondary-fixed": "#2f1500",
+            "surface-container-high": "#ebe8e3",
+            "on-secondary-fixed-variant": "#673c16",
+            "error": "#ba1a1a",
+            "outline-variant": "#d4c3bc",
+            "on-tertiary-container": "#be835f",
+            "surface-container-highest": "#e5e2dd",
+            "secondary-fixed": "#ffdcc3",
+            "primary-fixed": "#ffdbca",
+            "inverse-surface": "#31302d",
+            "secondary-fixed-dim": "#f9b989",
+            "surface-bright": "#fcf9f4",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#2d1608",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#e9bda7",
+            "background": "#fcf9f4",
+            "primary-container": "#3d2314",
+            "surface-tint": "#795745",
+            "secondary-container": "#ffbf8e",
+            "tertiary-container": "#451f03",
+            "surface-variant": "#e5e2dd"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "0.75rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter-desktop": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Playfair Display", "serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    @keyframes pulseArrows {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(4px); opacity: 1; }
+    }
+    .animate-pulse-arrow {
+      animation: pulseArrows 1.4s ease-in-out infinite;
+    }
+    .slider-interactive-element {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Header -->
+<header class="fixed top-0 w-full z-40 pt-safe bg-surface/90 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="h-14 px-margin flex items-center justify-between max-w-[480px] mx-auto w-full">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Orqaga" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">Buyurtmalar holati<br>va tarix</h1>
+</div>
+<div class="flex items-center gap-1">
+<img alt="IsmailSamani Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjCHQ80udzOMzAqgi8hW2GmPMS2DOHeTNmWcAVBXRIg7KEDR8a4KO1-bw8KGhP08uIDVCYyhwMNRNng5wArrPLK3fS6EOC8KRhOPgoNukGY-5h7rQZVAeIoldkKnlU6Lcuv5AG7tUx4NpXnBoh1KIlfoUjUAm7nHQOUeJq5EzkuTdf-FvbKLhzR-nXIlnB7KtazI0XmV2Iw4KVGVxiTzoyuWfTBtQCrakvTQ0ozTJ3FBXx9RK3IQEW1ZCKVIdNOL4T">
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex flex-col relative w-full pt-16 pb-36 bg-surface min-h-screen max-w-[480px] mx-auto"><div class="flex flex-col w-full px-margin pb-10 gap-space-lg">
+<!-- Status Filter Chips Carousel -->
+<div class="w-full -mx-margin px-margin overflow-x-auto no-scrollbar pt-1">
+<div class="flex items-center gap-2 min-w-max pb-1" id="filter-container">
+<button class="filter-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all duration-200" onclick="filterOrders('all', this)">
+        Barchasi <span class="ml-1 opacity-70 font-normal text-label-sm">(3)</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all duration-200" onclick="filterOrders('active', this)">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        Jarayonda <span class="opacity-70 font-normal text-label-sm">(1)</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all duration-200" onclick="filterOrders('delivered', this)">
+        Yetkazildi <span class="ml-1 opacity-70 font-normal text-label-sm">(2)</span>
+</button>
+<button class="filter-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all duration-200" onclick="filterOrders('cancelled', this)">
+        Bekor qilingan <span class="ml-1 opacity-70 font-normal text-label-sm">(0)</span>
+</button>
+</div>
+</div>
+<!-- Ambient Coffee Loyalty Streak Pill -->
+<div class="w-full bg-surface-container-low rounded-2xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-xs">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &quot;FILL&quot; 1;">local_cafe</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Har 6-qahva sizga tuhfa</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sizda hozir 4 ta qahva tamg'asi bor</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-3 py-1.5 rounded-full shadow-xs">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">4</span>
+<span class="font-label-sm text-label-sm text-outline">/ 6</span>
+</div>
+</div>
+<!-- Orders Listing -->
+<div class="flex flex-col gap-4" id="orders-list">
+<!-- Order 1: Jarayonda / Active -->
+<article class="order-card w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-md flex flex-col gap-3.5 transition-all" data-status="active" style="display: flex;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold tracking-tight">#IS-4821</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bugun, 14:20</span>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary-fixed/50 px-3 py-1 rounded-full shadow-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-secondary-fixed font-bold uppercase tracking-wider">Tayyorlanmoqda</span>
+</div>
+</div>
+<!-- Preparation Stepper Timeline -->
+<div class="w-full bg-surface-container-low rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">moped</span>
+            Taxminiy yetib borish:
+          </span>
+<span class="font-bold text-primary font-label-md text-label-md">14:40 (20 daqiqa)</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container via-secondary to-primary-container rounded-full w-3/5 transition-all duration-500"></div>
+</div>
+</div>
+<!-- Items List -->
+<div class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 shadow-xs" data-alt="Warm artisanal porcelain cup filled with cappuccino featuring intricate velvety foam rosette art on a dark polished teak cafe table in soft afternoon sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx93OQ_nX1-6tGpuLmFxIBNwsvvokzrG_o7CG3Urf-BnjYjAeVBqIL_YnX0TXMSkXPK3GD43k9X7jMBNQbiloKeQ00bLh6RzX9G8xszbU1A89BXl1WVpO5XoXy-7j7AmV0ynI8NBM_fYRtq--g_L-CZaIb0oF8gUsQ4OO32l3Saeu5d2uxKiIaIF9xQdu3tGB_VqrycMYM_y2yDJfmvSp4UqYKn3n37kBeOZ-jNhc">
+<div class="min-w-0 flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Kapuchino Klasik</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1x dona · Standart sut, dolchin</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold whitespace-nowrap">42 000 so'm</span>
+</div>
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 shadow-xs" data-alt="Freshly baked golden layered French butter croissant served on an off-white ceramic dish with delicate buttery flakes and warm golden hour lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMCGziQN7slMYsTLvZd38odn04vao4L3OerFPxms2hKBzn8iVXZSTCp7G4tqN5S6BphDUhjaAUzCNM0vujk6DC6UQ_74plqSaOyA7ovdiGSpyX_CIceVZUIyDnBsH_z9gNnPGkuqkP-bcKeGHTCq5rdQW8KPbMN5e_u7dyMIMLF-cuuWaPzSRgb7Rb3BiS3S5Wg9BD6S0V9XpDc52IvToRKWIOpu8u7okw_MI3y4Q">
+<div class="min-w-0 flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Fransuz Kruassani</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1x dona · Qovurilgan bodom bilan</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold whitespace-nowrap">28 000 so'm</span>
+</div>
+</div>
+<!-- Total & Action Bottom Row -->
+<div class="pt-2 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Umumiy summa</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">70 000 so'm</span>
+</div>
+<button class="py-2.5 px-4 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary active:scale-95 transition-all flex items-center gap-1.5" onclick="trackCourierModal('#IS-4821')" type="button">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="">Kuryerni kuzatish</span>
+</button>
+</div>
+</article>
+<!-- Order 2: Yetkazildi -->
+<article class="order-card w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md flex flex-col gap-3.5 transition-all" data-status="delivered" style="display: none;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold tracking-tight">#IS-3904</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">18-Mart, 10:15</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full shadow-xs">
+<span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Yetkazildi</span>
+</div>
+</div>
+<!-- Items List -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 shadow-xs" data-alt="Chilled layered iced caramel macchiato in a clear tall ribbed glassware showing bold dark espresso pouring over frothy creamy milk and dripping caramel drizzle with ice cubes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAhgl0uSHmRHAavkPG5hgl4TcsxB0SbTQzRECW8GGz5S25wzHS7BeJ4ll7Zh739omoMb9rsaaeXjEOkMJ2z-nqXVfg5C0U8zQmaOZs2uUJSuP0bPjfn8jefO8m0e8RcNMt0ON5vNKDT3qtff9o7Joa8oT-N7PT-YluM5I38uk-iD_bj7WsHNCA_X1VlerAeAe8BisoajUA-i46AYptGcVwmcFYM-YQtNCFqrqsZ4U">
+<div class="min-w-0 flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Muzdek Karamel Makkiato</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2x dona · Bodom suti, muz bilan</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold whitespace-nowrap">56 000 so'm</span>
+</div>
+</div>
+<!-- Courier Note / Feedback Pill -->
+<div class="bg-surface-container-low/70 rounded-xl px-3 py-2 flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">sentiment_satisfied</span>
+<span class="">Siz baholadingiz:</span>
+</div>
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+</div>
+<!-- Total & Action Bottom Row -->
+<div class="pt-1 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">To'langan</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">56 000 so'm</span>
+</div>
+
+</div>
+</article>
+<!-- Order 3: Yetkazildi -->
+<article class="order-card w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md flex flex-col gap-3.5 transition-all" data-status="delivered" style="display: none;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold tracking-tight">#IS-2715</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">12-Mart, 16:40</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full shadow-xs">
+<span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Yetkazildi</span>
+</div>
+</div>
+<!-- Items List -->
+<div class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 shadow-xs" data-alt="Rich double espresso Americano in a minimalist ceramic cup with deep hazelnut crema ring and warm steam rising against a dark walnut surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmUEAUdxwxFaMbN7KqAFmZF7beGLmVGBlyxg5bpuXcs_r37TCkom62jTZ0R9hzQayheIB4-yVJxXw2V2YthRK-HldC1z3Xb2vJKqVx8npwbb-eR_UqciwQexYUxMELYqB88CJ9DSOprDkkV-C39TwHoXZ76Naw6xZgPak4dt_xR5zGMM99bTApRjyoHV7Vg7EZVKhke5EfMdouXiYhXiaOpowCJc5vNGiVnOlCsaQ">
+<div class="min-w-0 flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Double Americano</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1x dona · Efiopiya Yirgacheffe</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold whitespace-nowrap">26 000 so'm</span>
+</div>
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 shadow-xs" data-alt="Artisanal sourdough avocado toast garnished with microgreens, poached organic egg, chili flakes and sesame seeds on textured handcrafted pottery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF06txaG2RekWGRdwlQ7HHfhjysysUBnPhNNHAj1_iRqjYSPcvolqcvj1YQy9ZVVnN5ZlrezcuIqPewg_cBfie2l9C8a1imlVFa-0Iv9eRRkKO7oYSmjcnUARlEm_I-gPq65PYuBZ6q9UQ3IP4QSW_so5Y1kQ3aYsal2d8XtL0XpGMlx5KrtHo10W3Vir2qKYArE59E6YuYeTM1pL12p5rQRpwqGPNa9fBWJgJVFY">
+<div class="min-w-0 flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Avokado &amp; Toast</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1x dona · Qora non, zaytun moyi</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold whitespace-nowrap">28 000 so'm</span>
+</div>
+</div>
+<!-- Total & Action Bottom Row -->
+<div class="pt-1 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">To'langan</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">54 000 so'm</span>
+</div>
+
+</div>
+</article>
+</div>
+<!-- Empty State Banner (Shown when filter has no results) -->
+<div class="w-full bg-surface-container-low rounded-3xl p-8 flex-col items-center text-center gap-3 shadow-xs hidden" id="empty-state">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[32px]">coffee_maker</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-headline-sm text-headline-sm text-primary font-semibold">Bu holatda buyurtmalar yo'q</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">Hozircha bekor qilingan buyurtmalaringiz mavjud emas.</p>
+</div>
+</div>
+<!-- Subtle Boutique Roastery Footer Note -->
+<div class="w-full flex items-center justify-center gap-2 py-4 text-outline font-label-sm text-label-sm opacity-80">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+<span class="">Har bir donacha mehr bilan qovuriladi · IsmailSamani</span>
+</div>
+</div>
+<!-- Courier Tracking Bottom Sheet Modal -->
+<div class="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-end justify-center p-0 transition-opacity duration-300 opacity-0 pointer-events-none" id="tracking-sheet">
+<div class="w-full max-w-[480px] bg-surface rounded-t-[28px] p-6 shadow-2xl flex flex-col gap-4 transform transition-transform duration-300 translate-y-full max-h-[85vh] overflow-y-auto" id="tracking-content">
+<div class="w-12 h-1 bg-surface-container-highest rounded-full mx-auto mb-1"></div>
+<div class="flex items-center justify-between pb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Yetkazib berish holati</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="modal-order-id">Buyurtma #IS-4821</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary" onclick="closeTrackingModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Mini Courier Location Card -->
+<div class="w-full h-40 bg-cover bg-center rounded-2xl relative overflow-hidden shadow-sm flex items-end p-3" data-location="Amir Temur Avenue, Tashkent, Uzbekistan" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDeuHBUoNizVltSudv6zQBjY37fbL5t9UZxDvp5b76ahUO9AKPqUjdqwbnf21jnQBen28Vgt8euF8CUlJ-Cs_iR1GUpbi6QQSuyc2NiAWWO5mwn1LndB5Gp6lFpReXOndDErV5ynscVYMUcx_PTgyik6SX7su0-wrUKQ99un8pfmFSURfy-3QzaAPHNym3xQ9U_yfGrExUnVI52L4pbBjBxmsSzdLOSYEeERMXT1dY&quot;);">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="relative z-10 flex items-center justify-between w-full bg-surface/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-md">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">two_wheeler</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Kuryer: Azizbek R.</p>
+<p class="font-body-sm text-body-sm text-secondary font-medium">Honda Dio · 5 daqiqa qoldi</p>
+</div>
+</div>
+<a class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-xs active:scale-95 transition-all" href="tel:+998901234567">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+</div>
+</div>
+<!-- Stepper Steps -->
+<div class="flex flex-col gap-3 py-1">
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Qabul qilindi va to'landi</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">14:20 · Payme orqali tasdiqlandi</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-xs animate-pulse">
+<span class="material-symbols-outlined text-[16px]">blender</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Barista qahvani damlamoqda</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">14:24 · Fransuz kruassani isitilmoqda</p>
+</div>
+</div>
+<div class="flex items-start gap-3 opacity-60">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">moped</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-medium">Kuryer yetkazish yo'lida</p>
+<p class="font-body-sm text-body-sm text-outline">Kutilayotgan vaqt: 14:35</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 rounded-full bg-surface-container-high text-primary font-label-md text-label-md hover:bg-surface-container-highest transition-all mt-1" onclick="closeTrackingModal()" type="button">
+      Yopish
+    </button>
+</div>
+</div>
+<script>
+  function filterOrders(status, buttonElement) {
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => {
+      tab.className = "filter-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all duration-200";
+    });
+
+    buttonElement.className = "filter-tab px-4 py-2 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all duration-200";
+
+    const cards = document.querySelectorAll('.order-card');
+    const emptyState = document.getElementById('empty-state');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const cardStatus = card.getAttribute('data-status');
+      if (status === 'all' || cardStatus === status) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (emptyState) {
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      } else {
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+    }
+  }
+
+  function trackCourierModal(orderId) {
+    const modal = document.getElementById('tracking-sheet');
+    const content = document.getElementById('tracking-content');
+    const orderTitle = document.getElementById('modal-order-id');
+    
+    if (orderTitle) orderTitle.innerText = `Buyurtma ${orderId}`;
+    if (modal && content) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      content.classList.remove('translate-y-full');
+    }
+  }
+
+  function closeTrackingModal() {
+    const modal = document.getElementById('tracking-sheet');
+    const content = document.getElementById('tracking-content');
+    if (modal && content) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      content.classList.add('translate-y-full');
+    }
+  }
+
+  function reorderItems(itemName) {
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      try { navigator.vibrate(30); } catch(e) {}
+    }
+    alert(`"${itemName}" savatchaga muvaffaqiyatli qo'shildi!`);
+  }
+
+  function downloadReceipt(orderId) {
+    alert(`${orderId} buyurtma cheki elektron nusxada yuklab olindi.`);
+  }
+
+  const modalBackdrop = document.getElementById('tracking-sheet');
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', function(e) {
+      if (e.target === modalBackdrop) {
+        closeTrackingModal();
+      }
+    });
+  }
+</script></main>
+<!-- Sticky Bottom Checkout Dock with Interactive Slide-to-Pay Track -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_24px_rgba(61,35,20,0.08)] pb-safe">
+<div class="max-w-[480px] mx-auto px-margin pt-2.5 pb-2 flex flex-col gap-2">
+<!-- Micro Status Strip -->
+<div class="flex items-center justify-between px-1 text-on-surface-variant">
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span class="">Xavfsiz to'lov:</span>
+<span class="font-bold text-primary ml-0.5" id="dock-active-method-name">Naqd pul</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+<span class="">256-bit shifrlangan</span>
+</div>
+</div>
+<!-- Slide to Confirm Widget (Oq fonli, to'liq ishlovchi) -->
+<div class="w-full flex flex-col select-none">
+
+</div>
+</div>
+</div>
+<!-- Interactive Barista Note Bottom Sheet Modal -->
+<div class="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-end justify-center p-0 transition-opacity duration-300 opacity-0 pointer-events-none" id="barista-modal">
+<div class="w-full max-w-[480px] bg-surface rounded-t-[28px] p-6 shadow-2xl flex flex-col border-t border-outline-variant/30 transform transition-transform duration-300 translate-y-full max-h-[90vh] overflow-y-auto" id="barista-modal-sheet">
+<!-- Handle bar -->
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Baristaga izoh</h3>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Maxsus tayyorlash yoki yetkazish ko'rsatmalari</p>
+</div>
+</div>
+<button aria-label="Yopish" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary hover:bg-surface-container transition-colors" onclick="closeBaristaModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Quick selection tags -->
+<div class="mb-3">
+<div class="text-[12px] font-semibold text-primary font-label-md mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">label</span>
+<span class="">Tezkor tanlovlar:</span>
+</div>
+<div class="flex flex-wrap gap-2" id="quick-tags-container">
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Kam shakar')" type="button">Kam shakar</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Issiqroq bo\'lsin')" type="button">Issiqroq bo'lsin</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Eshik kodi bor')" type="button">Eshik kodi bor</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Aloqa qilmang')" type="button">Aloqa qilmang</button>
+</div>
+</div>
+<!-- Textarea -->
+<div class="flex flex-col gap-1.5 mb-5">
+<label class="text-[12px] font-semibold text-primary font-label-md" for="barista-textarea">Sizning xabaringiz:</label>
+<div class="relative rounded-2xl bg-surface-container-lowest border border-outline-variant/60 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 transition-all p-3 shadow-xs">
+<textarea class="w-full bg-transparent border-0 outline-none text-on-surface font-body-md text-body-md placeholder:text-outline/70 resize-none" id="barista-textarea" placeholder="Masalan: Kamroq shakar soling, eshik kodi 1234, qo'shimcha salfetka..." rows="4"></textarea>
+<div class="flex justify-between items-center pt-2 border-t border-outline-variant/20 mt-1">
+<button class="text-[11px] text-outline hover:text-error transition-colors flex items-center gap-0.5" onclick="clearBaristaNoteInput()" type="button">
+<span class="material-symbols-outlined text-[13px]">delete_sweep</span> Tozalash
+</button>
+<span class="text-[11px] text-outline" id="char-counter">0 / 200</span>
+</div>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-3 rounded-full bg-surface-container text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors text-center" onclick="closeBaristaModal()" type="button">
+Bekor qilish
+</button>
+<button class="flex-1 py-3 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-md active:scale-95 hover:bg-primary transition-all text-center flex items-center justify-center gap-1.5" onclick="saveBaristaNote()" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="">Saqlash</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Success Confirmation Modal Overlay -->
+<div class="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300 opacity-0 pointer-events-none" id="order-success-modal">
+<div class="w-full max-w-[440px] bg-surface rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl flex flex-col items-center text-center transform transition-transform duration-300 border border-outline-variant/30 translate-y-8" id="modal-card">
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mb-5 sm:hidden"></div>
+<div class="w-20 h-20 rounded-full bg-[#10b981]/15 text-[#059669] flex items-center justify-center mb-4 ring-8 ring-[#10b981]/10">
+<span class="material-symbols-outlined text-[42px] font-bold">check_circle</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold mb-1">Buyurtmangiz qabul qilindi! 🎉</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-4">
+        Buyurtmangiz qabul qilindi! 🎉 Tayyorlanmoqda... Rahmat! Buyurtmangiz qahvaxonamizga yo'naltirildi. Barista uni tayyorlashni boshladi.
+      </p>
+<!-- Receipt Details Pill -->
+<div class="w-full rounded-2xl bg-surface-container-low p-4 flex flex-col gap-2 mb-6 border border-outline-variant/40 text-left">
+<div class="flex items-center justify-between text-body-sm font-medium">
+<span class="text-on-surface-variant">To'lov turi:</span>
+<span class="text-primary font-bold flex items-center gap-1.5" id="modal-payment-method"><span class="w-2 h-2 rounded-full bg-secondary"></span> Naqd pul</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-medium">
+<span class="text-on-surface-variant">Taxminiy vaqt:</span>
+<span class="text-secondary font-bold">15-20 daqiqa</span>
+</div>
+<div class="h-px bg-outline-variant/40 my-0.5"></div>
+<div class="flex items-center justify-between font-label-md">
+<span class="text-primary font-bold">To'langan summa:</span>
+<span class="text-primary font-bold text-[16px]" id="modal-total-amount">100,000 so'm</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-2.5">
+<button class="w-full py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-colors" onclick="closeSuccessModal()" type="button">
+          Buyurtma holatini kuzatish
+        </button>
+<button class="w-full py-3 rounded-full bg-transparent text-on-surface-variant font-label-md hover:bg-surface-container transition-colors" onclick="resetCartDemo()" type="button">
+          Bosh sahifaga qaytish
+        </button>
+</div>
+</div>
+</div>
+<script>
+    let quantities = {
+      cappuccino: 2,
+      macchiato: 1,
+      croissant: 1
+    };
+
+    const prices = {
+      cappuccino: 24000,
+      macchiato: 28000,
+      croissant: 22000
+    };
+
+    let deliveryFee = 12000;
+    let discountAmount = 10000;
+    let isTakeaway = false;
+    let selectedMethod = 'cash';
+    let savedBaristaNote = "";
+
+    const methodNames = {
+      payme: 'Payme',
+      click: 'Click',
+      cash: 'Naqd pul',
+      terminal: 'Plastik karta'
+    };
+
+    /* --- BARISTA NOTE FUNCTIONALITY --- */
+    function openBaristaModal() {
+      const modal = document.getElementById('barista-modal');
+      const sheet = document.getElementById('barista-modal-sheet');
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+
+      if (textarea) {
+        textarea.value = savedBaristaNote;
+        if (charCounter) charCounter.innerText = `${textarea.value.length} / 200`;
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      sheet.classList.remove('translate-y-full');
+      setTimeout(() => {
+        if (textarea) textarea.focus();
+      }, 250);
+    }
+
+    function closeBaristaModal() {
+      const modal = document.getElementById('barista-modal');
+      const sheet = document.getElementById('barista-modal-sheet');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      sheet.classList.add('translate-y-full');
+    }
+
+    function addQuickTag(text) {
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+      if (!textarea) return;
+
+      let current = textarea.value.trim();
+      if (current.includes(text)) return; // Already present
+
+      if (current.length > 0) {
+        textarea.value = current + ", " + text;
+      } else {
+        textarea.value = text;
+      }
+
+      if (textarea.value.length > 200) {
+        textarea.value = textarea.value.substring(0, 200);
+      }
+      if (charCounter) charCounter.innerText = `${textarea.value.length} / 200`;
+      textarea.focus();
+    }
+
+    function clearBaristaNoteInput() {
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+      if (textarea) {
+        textarea.value = '';
+        if (charCounter) charCounter.innerText = `0 / 200`;
+        textarea.focus();
+      }
+    }
+
+    function saveBaristaNote() {
+      const textarea = document.getElementById('barista-textarea');
+      const display = document.getElementById('barista-note-display');
+      const badge = document.getElementById('barista-note-status-badge');
+      const trigger = document.getElementById('barista-note-trigger');
+      const iconBox = document.getElementById('barista-note-icon-box');
+
+      savedBaristaNote = textarea ? textarea.value.trim() : "";
+
+      if (savedBaristaNote.length > 0) {
+        if (display) {
+          display.innerText = savedBaristaNote;
+          display.className = "font-body-sm text-body-sm text-secondary font-medium truncate";
+        }
+        if (badge) badge.classList.remove('hidden');
+        if (trigger) {
+          trigger.classList.add('border-secondary/40', 'bg-secondary-fixed/20');
+        }
+        if (iconBox) {
+          iconBox.classList.add('bg-secondary-container', 'text-on-secondary-container');
+        }
+      } else {
+        if (display) {
+          display.innerText = "Eshik kodi, harorat yoki maxsus istaklar...";
+          display.className = "font-body-sm text-body-sm text-on-surface-variant truncate";
+        }
+        if (badge) badge.classList.add('hidden');
+        if (trigger) {
+          trigger.classList.remove('border-secondary/40', 'bg-secondary-fixed/20');
+        }
+      }
+
+      closeBaristaModal();
+    }
+
+    const baristaTextarea = document.getElementById('barista-textarea');
+    if (baristaTextarea) {
+      baristaTextarea.addEventListener('input', function() {
+        if (this.value.length > 200) {
+          this.value = this.value.substring(0, 200);
+        }
+        const counter = document.getElementById('char-counter');
+        if (counter) counter.innerText = `${this.value.length} / 200`;
+      });
+    }
+
+    function selectPaymentMethod(methodKey) {
+      selectedMethod = methodKey;
+      const cards = document.querySelectorAll('.payment-card');
+      cards.forEach(card => {
+        const isCurrent = card.getAttribute('data-method') === methodKey;
+        const indicator = card.querySelector('.radio-indicator');
+        if (isCurrent) {
+          card.className = "payment-card relative p-3 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-all duration-200 flex flex-col justify-between shadow-xs select-none";
+          if (indicator) {
+            indicator.className = "radio-indicator w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center transition-all";
+            indicator.innerHTML = '<span class="material-symbols-outlined text-[13px] font-bold">check</span>';
+          }
+        } else {
+          card.className = "payment-card relative p-3 rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-200 flex flex-col justify-between cursor-pointer select-none";
+          if (indicator) {
+            indicator.className = "radio-indicator w-5 h-5 rounded-full border border-outline text-transparent flex items-center justify-center transition-all";
+            indicator.innerHTML = '<span class="material-symbols-outlined text-[13px] font-bold">check</span>';
+          }
+        }
+      });
+
+      const labelEl = document.getElementById('selected-payment-label');
+      const dockMethodEl = document.getElementById('dock-active-method-name');
+      if (labelEl) labelEl.innerText = methodNames[methodKey] + " orqali";
+      if (dockMethodEl) dockMethodEl.innerText = methodNames[methodKey];
+    }
+
+    function switchDeliveryMode(mode) {
+      const deliveryBtn = document.getElementById('tab-delivery');
+      const takeawayBtn = document.getElementById('tab-takeaway');
+
+      if (mode === 'delivery') {
+        isTakeaway = false;
+        deliveryFee = 12000;
+        deliveryBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary shadow-sm";
+        takeawayBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-primary";
+        document.getElementById('summary-delivery').innerText = "12 000 so'm";
+      } else {
+        isTakeaway = true;
+        deliveryFee = 0;
+        takeawayBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary shadow-sm";
+        deliveryBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-primary";
+        document.getElementById('summary-delivery').innerText = "Bepul (Olib ketish)";
+      }
+      updateTotals();
+    }
+
+    function adjustQty(key, delta, unitPrice) {
+      if (!quantities[key] && delta < 0) return;
+      quantities[key] = Math.max(1, (quantities[key] || 1) + delta);
+      
+      const qtyEl = document.getElementById(`qty-${key}`);
+      const priceEl = document.getElementById(`price-${key}`);
+      if (qtyEl) qtyEl.innerText = quantities[key];
+      if (priceEl) {
+        const itemSum = quantities[key] * unitPrice;
+        priceEl.innerText = itemSum.toLocaleString('uz-UZ') + " so'm";
+      }
+      updateTotals();
+    }
+
+    function removeItem(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.style.opacity = '0';
+      el.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        const key = elementId.replace('item-', '');
+        delete quantities[key];
+        el.remove();
+        updateTotals();
+      }, 200);
+    }
+
+    function updateTotals() {
+      let subtotal = 0;
+      let itemCount = 0;
+      for (const [key, qty] of Object.entries(quantities)) {
+        subtotal += qty * (prices[key] || 0);
+        itemCount += qty;
+      }
+      const finalTotal = Math.max(0, subtotal + deliveryFee - (subtotal > 0 ? discountAmount : 0));
+
+      const subtotalEl = document.getElementById('summary-subtotal');
+      const totalEl = document.getElementById('summary-total');
+      const dockTotalEl = document.getElementById('dock-total');
+      const badgeEl = document.getElementById('cart-badge');
+      const freeDelText = document.getElementById('free-delivery-text');
+      const freeDelProgress = document.getElementById('free-delivery-progress');
+
+      if (subtotalEl) subtotalEl.innerText = subtotal.toLocaleString('uz-UZ') + " so'm";
+      if (totalEl) totalEl.innerText = finalTotal.toLocaleString('uz-UZ') + " so'm";
+      if (dockTotalEl) dockTotalEl.innerText = finalTotal.toLocaleString('uz-UZ') + " so'm";
+      if (badgeEl) badgeEl.innerText = `${itemCount} ta mahsulot`;
+
+      // Free delivery progress calculation (target: 120 000 so'm)
+      const freeDeliveryTarget = 120000;
+      if (subtotal >= freeDeliveryTarget) {
+        if (freeDelText) freeDelText.innerText = "Bepul yetkazib berish faollashtirildi!";
+        if (freeDelProgress) freeDelProgress.style.width = "100%";
+      } else {
+        const remaining = freeDeliveryTarget - subtotal;
+        if (freeDelText) freeDelText.innerText = `${remaining.toLocaleString('uz-UZ')} so'm qoldi`;
+        const percentage = Math.min(100, Math.max(10, Math.round((subtotal / freeDeliveryTarget) * 100)));
+        if (freeDelProgress) freeDelProgress.style.width = `${percentage}%`;
+      }
+    }
+
+    function applyPromo() {
+      const input = document.getElementById('promo-input');
+      if (!input) return;
+      if (input.value.trim().toUpperCase() === 'BAHOR20') {
+        discountAmount = 10000;
+        updateTotals();
+        alert("Promokod tasdiqlandi: 10 000 so'm chegirma!");
+      } else {
+        alert("Noto'g'ri promokod kiritildi");
+      }
+    }
+
+    /* --- SLIDE TO PAY ROBUST INTERACTIVE ENGINE --- */
+    let isDragging = false;
+    let startClientX = 0;
+    let currentX = 0;
+    let maxSlide = 0;
+    let orderCompleted = false;
+    let hasMoved = false;
+
+    const track = document.getElementById('slider-track');
+    const knob = document.getElementById('slider-knob');
+    const fill = document.getElementById('slider-fill');
+    const labelWrap = document.getElementById('slider-text-wrap');
+    const knobIcon = document.getElementById('knob-icon');
+    const sliderLabel = document.getElementById('slider-label');
+    const sliderArrows = document.getElementById('slider-arrows');
+
+    function calculateMaxSlide() {
+      if (!track || !knob) return 200;
+      const trackRect = track.getBoundingClientRect();
+      const knobRect = knob.getBoundingClientRect();
+      return Math.max(40, trackRect.width - knobRect.width - 12);
+    }
+
+    function triggerHaptic() {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([40, 30, 80]);
+        } catch (e) {}
+      }
+    }
+
+    function startDrag(clientX) {
+      if (orderCompleted) return;
+      isDragging = true;
+      hasMoved = false;
+      startClientX = clientX;
+      maxSlide = calculateMaxSlide();
+      knob.style.transition = 'none';
+      fill.style.transition = 'none';
+    }
+
+    function moveDrag(clientX) {
+      if (!isDragging || orderCompleted) return;
+      const delta = clientX - startClientX;
+      if (Math.abs(delta) > 4) {
+        hasMoved = true;
+      }
+      currentX = Math.max(0, Math.min(delta, maxSlide));
+
+      const progress = maxSlide > 0 ? (currentX / maxSlide) : 0;
+      knob.style.transform = `translateX(${currentX}px)`;
+      fill.style.width = `${currentX + 54}px`;
+
+      if (labelWrap) {
+        labelWrap.style.opacity = `${Math.max(0, 1 - progress * 1.6)}`;
+      }
+
+      if (progress >= 0.65) {
+        knob.classList.add('bg-[#10b981]');
+        knob.classList.remove('bg-primary');
+      } else {
+        knob.classList.remove('bg-[#10b981]');
+        knob.classList.add('bg-primary');
+      }
+    }
+
+    function endDrag() {
+      if (!isDragging || orderCompleted) return;
+      isDragging = false;
+      const progress = maxSlide > 0 ? (currentX / maxSlide) : 0;
+
+      if (progress >= 0.65) {
+        triggerSuccessSlide();
+      } else if (!hasMoved) {
+        triggerSuccessSlide();
+      } else {
+        snapBack();
+      }
+    }
+
+    function snapBack() {
+      knob.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      fill.style.transition = 'width 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      knob.style.transform = 'translateX(0px)';
+      fill.style.width = '56px';
+      if (labelWrap) labelWrap.style.opacity = '1';
+      knob.classList.remove('bg-[#10b981]');
+      knob.classList.add('bg-primary');
+      currentX = 0;
+    }
+
+    function triggerSuccessSlide() {
+      if (orderCompleted) return;
+      orderCompleted = true;
+      triggerHaptic();
+      maxSlide = calculateMaxSlide();
+
+      knob.style.transition = 'transform 0.32s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease';
+      fill.style.transition = 'width 0.32s cubic-bezier(0.25, 1, 0.5, 1)';
+      knob.style.transform = `translateX(${maxSlide}px)`;
+      fill.style.width = '100%';
+
+      knob.classList.remove('bg-primary');
+      knob.classList.add('bg-[#10b981]');
+      if (knobIcon) {
+        knobIcon.innerText = 'check';
+        knobIcon.classList.add('scale-110');
+      }
+
+      if (sliderArrows) {
+        sliderArrows.style.display = 'none';
+      }
+
+      if (sliderLabel) {
+        sliderLabel.innerText = "Buyurtma qabul qilindi!";
+        sliderLabel.className = 'text-[12px] font-bold text-[#059669] truncate';
+        if (labelWrap) {
+          labelWrap.style.opacity = '1';
+        }
+      }
+
+      setTimeout(() => {
+        openSuccessModal();
+      }, 400);
+    }
+
+    function openSuccessModal() {
+      const modal = document.getElementById('order-success-modal');
+      const card = document.getElementById('modal-card');
+      const modalMethod = document.getElementById('modal-payment-method');
+      const modalTotal = document.getElementById('modal-total-amount');
+      const dockTotalEl = document.getElementById('dock-total');
+
+      if (modalMethod) {
+        modalMethod.innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary"></span> ${methodNames[selectedMethod]}`;
+      }
+      if (modalTotal && dockTotalEl) {
+        modalTotal.innerText = dockTotalEl.innerText;
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      card.classList.remove('translate-y-8');
+    }
+
+    function closeSuccessModal() {
+      const modal = document.getElementById('order-success-modal');
+      const card = document.getElementById('modal-card');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.add('translate-y-8');
+    }
+
+    function resetCartDemo() {
+      closeSuccessModal();
+      setTimeout(() => {
+        orderCompleted = false;
+        snapBack();
+        if (knobIcon) {
+          knobIcon.innerText = 'arrow_forward';
+          knobIcon.classList.remove('scale-110');
+        }
+        if (sliderArrows) {
+          sliderArrows.style.display = 'flex';
+        }
+        if (sliderLabel) {
+          sliderLabel.innerText = "SURING VA TASDIQLANG";
+          sliderLabel.className = 'text-[12px] font-bold text-primary/80 truncate';
+        }
+      }, 300);
+    }
+
+    // Touch event listeners
+    if (knob && track) {
+      knob.addEventListener('touchstart', function(e) {
+        if (e.touches.length > 0) {
+          startDrag(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', function(e) {
+        if (isDragging && e.touches.length > 0) {
+          if (e.cancelable) e.preventDefault();
+          moveDrag(e.touches[0].clientX);
+        }
+      }, { passive: false });
+
+      window.addEventListener('touchend', function() {
+        if (isDragging) endDrag();
+      }, { passive: true });
+
+      window.addEventListener('touchcancel', function() {
+        if (isDragging) snapBack();
+      }, { passive: true });
+
+      // Mouse event listeners for desktop
+      knob.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        startDrag(e.clientX);
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+          e.preventDefault();
+          moveDrag(e.clientX);
+        }
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (isDragging) endDrag();
+      });
+
+      // Track tap / click fallback
+      track.addEventListener('click', function(e) {
+        if (orderCompleted) return;
+        triggerSuccessSlide();
+      });
+    }
+
+    // Close modal when clicking outside sheet
+    const baristaModalBg = document.getElementById('barista-modal');
+    if (baristaModalBg) {
+      baristaModalBg.addEventListener('click', function(e) {
+        if (e.target === baristaModalBg) {
+          closeBaristaModal();
+        }
+      });
+    }
+
+    // Initial calculation
+    updateTotals();
+  </script>
+
+
+</body></html>

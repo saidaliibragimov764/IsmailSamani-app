@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+<html lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_stack" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#fab890",
+            "outline": "#82746e",
+            "on-primary-container": "#af8874",
+            "on-primary-fixed-variant": "#5e402f",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#794b24",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#693b1d",
+            "surface-dim": "#dcdad5",
+            "on-background": "#1c1c19",
+            "surface-container-low": "#f6f3ee",
+            "secondary": "#83532b",
+            "on-surface-variant": "#50443f",
+            "inverse-on-surface": "#f3f0eb",
+            "surface": "#fcf9f4",
+            "primary-fixed-dim": "#e9bda7",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#321300",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f0ede9",
+            "tertiary": "#280e00",
+            "primary": "#250f03",
+            "tertiary-fixed": "#ffdbc8",
+            "on-surface": "#1c1c19",
+            "on-secondary-fixed": "#2f1500",
+            "surface-container-high": "#ebe8e3",
+            "on-secondary-fixed-variant": "#673c16",
+            "error": "#ba1a1a",
+            "outline-variant": "#d4c3bc",
+            "on-tertiary-container": "#be835f",
+            "surface-container-highest": "#e5e2dd",
+            "secondary-fixed": "#ffdcc3",
+            "primary-fixed": "#ffdbca",
+            "inverse-surface": "#31302d",
+            "secondary-fixed-dim": "#f9b989",
+            "surface-bright": "#fcf9f4",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#2d1608",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#e9bda7",
+            "background": "#fcf9f4",
+            "primary-container": "#3d2314",
+            "surface-tint": "#795745",
+            "secondary-container": "#ffbf8e",
+            "tertiary-container": "#451f03",
+            "surface-variant": "#e5e2dd"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "0.75rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter-desktop": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Playfair Display", "serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    @keyframes pulseArrows {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(4px); opacity: 1; }
+    }
+    .animate-pulse-arrow {
+      animation: pulseArrows 1.4s ease-in-out infinite;
+    }
+    .slider-interactive-element {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Header -->
+<header class="fixed top-0 w-full z-40 pt-safe bg-surface/90 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="h-14 px-margin flex items-center justify-between max-w-[480px] mx-auto w-full">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Orqaga" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">Savatcha</h1>
+</div>
+<div class="flex items-center gap-1">
+<img alt="IsmailSamani Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjCHQ80udzOMzAqgi8hW2GmPMS2DOHeTNmWcAVBXRIg7KEDR8a4KO1-bw8KGhP08uIDVCYyhwMNRNng5wArrPLK3fS6EOC8KRhOPgoNukGY-5h7rQZVAeIoldkKnlU6Lcuv5AG7tUx4NpXnBoh1KIlfoUjUAm7nHQOUeJq5EzkuTdf-FvbKLhzR-nXIlnB7KtazI0XmV2Iw4KVGVxiTzoyuWfTBtQCrakvTQ0ozTJ3FBXx9RK3IQEW1ZCKVIdNOL4T"/>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex flex-col relative w-full pt-16 pb-36 bg-surface min-h-screen max-w-[480px] mx-auto">
+<!-- Status & Delivery Switcher Banner -->
+<section class="px-margin pt-space-sm pb-space-xs">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold" id="cart-badge">4 ta mahsulot</span>
+</div>
+<span class="text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 15-25 daqiqa
+        </span>
+</div>
+<!-- Segmented Delivery Toggle -->
+<div class="p-1 rounded-full bg-surface-container-high flex items-center shadow-inner">
+<button class="flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary shadow-sm" id="tab-delivery" onclick="switchDeliveryMode('delivery')" type="button">
+<span class="material-symbols-outlined text-[18px]">two_wheeler</span>
+<span class="">Yetkazib berish</span>
+</button>
+<button class="flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-primary" id="tab-takeaway" onclick="switchDeliveryMode('takeaway')" type="button">
+<span class="material-symbols-outlined text-[18px]">local_cafe</span>
+<span class="">Olib ketish</span>
+</button>
+</div>
+<!-- Free Delivery Progress Pill -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+</span>
+<span class="font-label-md text-label-md text-primary font-medium">Bepul yetkazib berish uchun</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold" id="free-delivery-text">22,000 so'm qoldi</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-secondary w-[81%] transition-all duration-500" id="free-delivery-progress" style="width: 82%;"></div>
+</div>
+</div>
+</section>
+<!-- Cart Items List -->
+<section class="px-margin mt-space-md flex flex-col gap-space-md" id="cart-items-container">
+<!-- Item 1: Kapuchino Klasik -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex gap-space-md relative overflow-hidden transition-all duration-300" id="item-cappuccino">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img alt="Kapuchino Klasik" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA11g6XlDbtka3CW3B08rizOBORyNjLgF4qeulr9tqreXYdUyYVqkZGPCsz3j3QjDhW7-OcvtWqVktW8_uDv-vvdzpVkitjF93m-_k8RsFYPwIpxjmxxRNhrrF8QbiGYC9RMpaA7WkQ1Q2wcEGDyxGvivn-2vf1u3m643xDvIw7HDcUL-ELmFvfR_ptGmBxmSedQv935X69eptsHqanalTNuQLGn5RJP2GV-Qgf4wA"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0 justify-between">
+<div class="pr-6">
+<h2 class="font-headline-sm text-headline-sm text-primary truncate leading-tight">Kapuchino Klasik</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">O'rta (350ml) • Kam shakar</p>
+</div>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-headline-md text-headline-md text-secondary" id="price-cappuccino">48 000 so'm</span>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container rounded-full p-0.5 shadow-sm">
+<button aria-label="Kamaytirish" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high active:scale-95 transition-transform" onclick="adjustQty('cappuccino', -1, 24000)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-md text-label-md text-primary font-bold" id="qty-cappuccino">2</span>
+<button aria-label="Ko'paytirish" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform" onclick="adjustQty('cappuccino', 1, 24000)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="O'chirish" class="absolute top-3 right-3 text-outline hover:text-error transition-colors p-1" onclick="removeItem('item-cappuccino')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</article>
+<!-- Item 2: Muzdek Karamel Makkiato -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex gap-space-md relative overflow-hidden transition-all duration-300" id="item-macchiato">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img alt="Muzdek Karamel Makkiato" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9ejv-icKTRaK7mEaMtByvtU8H0Wq2H1DkC3FcUJ4ZQRFB3LR3JxbUkoTefUU3CRYazM9emgaXCrMcqe6BIGxLWoAJTR6aMWRKokGJkOGBJI5IR7WC23LuZkbQ3Mu9TnC1tHr0gzHqhgdT8tWYbiXz4xCVoLUNCkOYfrWezYpfJe8hksRzgKGlU4YRqlqXv7EXw8OirdTw9MBP5GXuW-k1o-q4lLKVIEwZX1TDKrk"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0 justify-between">
+<div class="pr-6">
+<h2 class="font-headline-sm text-headline-sm text-primary truncate leading-tight">Muzdek Karamel Makk...</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Muz: O'rtacha • Karamelli sirop</p>
+</div>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-headline-md text-headline-md text-secondary" id="price-macchiato">28,000 so'm</span>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container rounded-full p-0.5 shadow-sm">
+<button aria-label="Kamaytirish" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high active:scale-95 transition-transform" onclick="adjustQty('macchiato', -1, 28000)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-md text-label-md text-primary font-bold" id="qty-macchiato">1</span>
+<button aria-label="Ko'paytirish" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform" onclick="adjustQty('macchiato', 1, 28000)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="O'chirish" class="absolute top-3 right-3 text-outline hover:text-error transition-colors p-1" onclick="removeItem('item-macchiato')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</article>
+<!-- Item 3: Fransuz Kruassani -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex gap-space-md relative overflow-hidden transition-all duration-300" id="item-croissant">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img alt="Fransuz Kruassani" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARI3HRmDlCuYMb_V4fh0ho85TyVxk9TWLlcv7yMnNRCRjkhPIgry8fUicmt8au8HqeyKUrDQznmXCnU3FyjuN1NUqOiTfliUuQHhf2_eeGgOkrWlEIm5uoHgPxUGJtqByzGdvYPCKW4WXM4LuliaPQ7x-v1GmeGq5W0wcI67wy5gGMOruSCuupISJYs8sdKA6g8Fzoh05Km4hOx8UH1Q4o0uDiiR1cvYpxHXej0k8"/>
+</div>
+<div class="flex flex-col flex-1 min-w-0 justify-between">
+<div class="pr-6">
+<h2 class="font-headline-sm text-headline-sm text-primary truncate leading-tight">Fransuz Kruassani</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Shokoladli sous bilan • Issiq</p>
+</div>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-headline-md text-headline-md text-secondary" id="price-croissant">22,000 so'm</span>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container rounded-full p-0.5 shadow-sm">
+<button aria-label="Kamaytirish" class="w-7 h-7 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high active:scale-95 transition-transform" onclick="adjustQty('croissant', -1, 22000)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-md text-label-md text-primary font-bold" id="qty-croissant">1</span>
+<button aria-label="Ko'paytirish" class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform" onclick="adjustQty('croissant', 1, 22000)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="O'chirish" class="absolute top-3 right-3 text-outline hover:text-error transition-colors p-1" onclick="removeItem('item-croissant')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</article>
+</section>
+<!-- Barista Note / Order Preferences -->
+<section class="px-margin mt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-md border border-outline-variant/20 hover:bg-surface-container active:scale-[0.99] transition-all cursor-pointer group" id="barista-note-trigger" onclick="openBaristaModal()">
+<span class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0 shadow-sm transition-colors group-hover:bg-secondary-container" id="barista-note-icon-box">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</span>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-primary font-semibold">Baristaga izoh qoldirish</span>
+<span class="hidden px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold" id="barista-note-status-badge">Kiritildi</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" id="barista-note-display">Eshik kodi, harorat yoki maxsus istaklar...</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary transition-colors" id="barista-note-arrow">chevron_right</span>
+</div>
+</section>
+<!-- Promo Code Section -->
+<section class="px-margin mt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px] text-secondary">confirmation_number</span>
+<span class="">Aksiya va promokodlar</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex-1 flex items-center bg-surface-container rounded-full px-space-md py-2">
+<input class="bg-transparent border-0 outline-none w-full text-on-surface font-body-md text-body-md placeholder:text-outline uppercase tracking-wider font-semibold" id="promo-input" placeholder="Promokodni kiriting..." type="text" value="BAHOR20"/>
+<span class="material-symbols-outlined text-secondary text-[20px]" id="promo-status-icon">check_circle</span>
+</div>
+<button class="px-5 py-2.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md shadow-sm active:scale-95 transition-transform shrink-0" onclick="applyPromo()" type="button">
+            Qo'llash
+          </button>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">BAHOR20</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">10 000 so'm tejaldi</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Chegirma qo'llandi</span>
+</div>
+</div>
+</section>
+<!-- Payment Methods Section -->
+<section class="px-margin mt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-secondary">account_balance_wallet</span>
+<span class="font-bold">To'lov usuli</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium" id="selected-payment-label">Naqd pul orqali</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5 pt-1" id="payment-methods-grid">
+<!-- Payme Card -->
+<!-- Click Card -->
+<!-- Naqd pul Card -->
+<div class="payment-card relative p-3 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-all duration-200 flex flex-col justify-between shadow-xs select-none" data-method="cash" onclick="selectPaymentMethod('cash')">
+<div class="flex items-start justify-between">
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[13px] font-bold">check</span></div>
+</div>
+<div class="mt-2.5">
+<div class="font-label-md text-label-md text-primary font-bold">Naqd pul</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant truncate">Kuryerga yetganda</div>
+</div>
+</div>
+<!-- Plastik karta Card -->
+<div class="payment-card relative p-3 rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-200 flex flex-col justify-between cursor-pointer select-none" data-method="terminal" onclick="selectPaymentMethod('terminal')">
+<div class="flex items-start justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full border border-outline text-transparent flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[13px] font-bold">check</span></div>
+</div>
+<div class="mt-2.5">
+<div class="font-label-md text-label-md text-primary font-bold">Plastik karta</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant truncate">Humo / Uzcard terminal</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Financial Breakdown -->
+<section class="px-margin mt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_-2px_rgba(61,35,20,0.06)] border border-outline-variant/30 flex flex-col gap-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Buyurtma hisobi</h3>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Mahsulotlar (4 dona)</span>
+<span class="font-label-lg text-label-lg text-on-surface" id="summary-subtotal">98,000 so'm</span>
+</div>
+<div class="flex items-center justify-between" id="summary-delivery-row">
+<div class="flex items-center gap-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Yetkazib berish</span>
+<span class="material-symbols-outlined text-outline text-[14px]">info</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface" id="summary-delivery">12 000 so'm</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-secondary">Aksiya bo'yicha chegirma</span>
+<span class="font-label-lg text-label-lg text-secondary" id="summary-discount">-10 000 so'm</span>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-surface-container-high my-space-xs"></div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Jami to'lov:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Barcha soliqlar kiritilgan</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold" id="summary-total">100,000 so'm</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Checkout Dock with Interactive Slide-to-Pay Track -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_24px_rgba(61,35,20,0.08)] pb-safe">
+<div class="max-w-[480px] mx-auto px-margin pt-2.5 pb-2 flex flex-col gap-2">
+<!-- Micro Status Strip -->
+<div class="flex items-center justify-between px-1 text-on-surface-variant">
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span class="">Xavfsiz to'lov:</span>
+<span class="font-bold text-primary ml-0.5" id="dock-active-method-name">Naqd pul</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+<span class="">256-bit shifrlangan</span>
+</div>
+</div>
+<!-- Slide to Confirm Widget (Oq fonli, to'liq ishlovchi) -->
+<div class="w-full flex flex-col select-none">
+<div class="slider-interactive-element relative w-full h-[62px] bg-surface-container-lowest rounded-full p-1.5 flex items-center shadow-[0_4px_20px_rgba(61,35,20,0.08)] border border-outline-variant/40 overflow-hidden cursor-pointer" id="slider-track">
+<!-- Active Progress Fill -->
+<div class="absolute left-0 top-0 bottom-0 bg-secondary-container/40 rounded-full transition-[width] pointer-events-none" id="slider-fill" style="width: 56px;"></div>
+<!-- Draggable Knob (Circle with arrow icon) -->
+<div class="slider-interactive-element relative z-20 w-[50px] h-[50px] rounded-full text-on-primary flex items-center justify-center shadow-md cursor-grab active:cursor-grabbing select-none transition-transform duration-75 bg-primary" id="slider-knob" style="transform: translateX(0px);">
+<span class="material-symbols-outlined text-[22px] transition-transform duration-200 pointer-events-none" id="knob-icon">arrow_forward</span>
+</div>
+<!-- Center Prompt & Pulsing Chevrons -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none pl-14 pr-28 transition-opacity duration-200" id="slider-text-wrap" style="opacity: 1;">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<span class="text-[12px] font-bold text-primary/80 truncate" id="slider-label">SURING VA TASDIQLANG</span>
+<div class="flex items-center animate-pulse-arrow text-secondary" id="slider-arrows">
+<span class="material-symbols-outlined text-[15px] -mr-1">chevron_right</span>
+<span class="material-symbols-outlined text-[15px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Price Pill on Right -->
+<div class="ml-auto pr-1.5 z-10 pointer-events-none">
+<span class="px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-md text-[13px] font-bold shadow-xs whitespace-nowrap" id="dock-total">100,000 so'm</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Barista Note Bottom Sheet Modal -->
+<div class="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-end justify-center p-0 transition-opacity duration-300 opacity-0 pointer-events-none" id="barista-modal">
+<div class="w-full max-w-[480px] bg-surface rounded-t-[28px] p-6 shadow-2xl flex flex-col border-t border-outline-variant/30 transform transition-transform duration-300 translate-y-full max-h-[90vh] overflow-y-auto" id="barista-modal-sheet">
+<!-- Handle bar -->
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Baristaga izoh</h3>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Maxsus tayyorlash yoki yetkazish ko'rsatmalari</p>
+</div>
+</div>
+<button aria-label="Yopish" class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary hover:bg-surface-container transition-colors" onclick="closeBaristaModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Quick selection tags -->
+<div class="mb-3">
+<div class="text-[12px] font-semibold text-primary font-label-md mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">label</span>
+<span>Tezkor tanlovlar:</span>
+</div>
+<div class="flex flex-wrap gap-2" id="quick-tags-container">
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Kam shakar')" type="button">Kam shakar</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Issiqroq bo\'lsin')" type="button">Issiqroq bo'lsin</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Eshik kodi bor')" type="button">Eshik kodi bor</button>
+<button class="quick-tag px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-sm text-[12px] border border-outline-variant/40 hover:bg-secondary-container/40 active:scale-95 transition-all" onclick="addQuickTag('Aloqa qilmang')" type="button">Aloqa qilmang</button>
+</div>
+</div>
+<!-- Textarea -->
+<div class="flex flex-col gap-1.5 mb-5">
+<label class="text-[12px] font-semibold text-primary font-label-md" for="barista-textarea">Sizning xabaringiz:</label>
+<div class="relative rounded-2xl bg-surface-container-lowest border border-outline-variant/60 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/10 transition-all p-3 shadow-xs">
+<textarea class="w-full bg-transparent border-0 outline-none text-on-surface font-body-md text-body-md placeholder:text-outline/70 resize-none" id="barista-textarea" placeholder="Masalan: Kamroq shakar soling, eshik kodi 1234, qo'shimcha salfetka..." rows="4"></textarea>
+<div class="flex justify-between items-center pt-2 border-t border-outline-variant/20 mt-1">
+<button class="text-[11px] text-outline hover:text-error transition-colors flex items-center gap-0.5" onclick="clearBaristaNoteInput()" type="button">
+<span class="material-symbols-outlined text-[13px]">delete_sweep</span> Tozalash
+</button>
+<span class="text-[11px] text-outline" id="char-counter">0 / 200</span>
+</div>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-3 rounded-full bg-surface-container text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors text-center" onclick="closeBaristaModal()" type="button">
+Bekor qilish
+</button>
+<button class="flex-1 py-3 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-md active:scale-95 hover:bg-primary transition-all text-center flex items-center justify-center gap-1.5" onclick="saveBaristaNote()" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Saqlash</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Success Confirmation Modal Overlay -->
+<div class="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300 opacity-0 pointer-events-none" id="order-success-modal">
+<div class="w-full max-w-[440px] bg-surface rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl flex flex-col items-center text-center transform transition-transform duration-300 border border-outline-variant/30 translate-y-8" id="modal-card">
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mb-5 sm:hidden"></div>
+<div class="w-20 h-20 rounded-full bg-[#10b981]/15 text-[#059669] flex items-center justify-center mb-4 ring-8 ring-[#10b981]/10">
+<span class="material-symbols-outlined text-[42px] font-bold">check_circle</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold mb-1">Buyurtmangiz qabul qilindi! 🎉</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-4">
+        Buyurtmangiz qabul qilindi! 🎉 Tayyorlanmoqda... Rahmat! Buyurtmangiz qahvaxonamizga yo'naltirildi. Barista uni tayyorlashni boshladi.
+      </p>
+<!-- Receipt Details Pill -->
+<div class="w-full rounded-2xl bg-surface-container-low p-4 flex flex-col gap-2 mb-6 border border-outline-variant/40 text-left">
+<div class="flex items-center justify-between text-body-sm font-medium">
+<span class="text-on-surface-variant">To'lov turi:</span>
+<span class="text-primary font-bold flex items-center gap-1.5" id="modal-payment-method"><span class="w-2 h-2 rounded-full bg-secondary"></span> Naqd pul</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-medium">
+<span class="text-on-surface-variant">Taxminiy vaqt:</span>
+<span class="text-secondary font-bold">15-20 daqiqa</span>
+</div>
+<div class="h-px bg-outline-variant/40 my-0.5"></div>
+<div class="flex items-center justify-between font-label-md">
+<span class="text-primary font-bold">To'langan summa:</span>
+<span class="text-primary font-bold text-[16px]" id="modal-total-amount">100,000 so'm</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-2.5">
+<button class="w-full py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-colors" onclick="closeSuccessModal()" type="button">
+          Buyurtma holatini kuzatish
+        </button>
+<button class="w-full py-3 rounded-full bg-transparent text-on-surface-variant font-label-md hover:bg-surface-container transition-colors" onclick="resetCartDemo()" type="button">
+          Bosh sahifaga qaytish
+        </button>
+</div>
+</div>
+</div>
+<script>
+    let quantities = {
+      cappuccino: 2,
+      macchiato: 1,
+      croissant: 1
+    };
+
+    const prices = {
+      cappuccino: 24000,
+      macchiato: 28000,
+      croissant: 22000
+    };
+
+    let deliveryFee = 12000;
+    let discountAmount = 10000;
+    let isTakeaway = false;
+    let selectedMethod = 'cash';
+    let savedBaristaNote = "";
+
+    const methodNames = {
+      payme: 'Payme',
+      click: 'Click',
+      cash: 'Naqd pul',
+      terminal: 'Plastik karta'
+    };
+
+    /* --- BARISTA NOTE FUNCTIONALITY --- */
+    function openBaristaModal() {
+      const modal = document.getElementById('barista-modal');
+      const sheet = document.getElementById('barista-modal-sheet');
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+
+      if (textarea) {
+        textarea.value = savedBaristaNote;
+        if (charCounter) charCounter.innerText = `${textarea.value.length} / 200`;
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      sheet.classList.remove('translate-y-full');
+      setTimeout(() => {
+        if (textarea) textarea.focus();
+      }, 250);
+    }
+
+    function closeBaristaModal() {
+      const modal = document.getElementById('barista-modal');
+      const sheet = document.getElementById('barista-modal-sheet');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      sheet.classList.add('translate-y-full');
+    }
+
+    function addQuickTag(text) {
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+      if (!textarea) return;
+
+      let current = textarea.value.trim();
+      if (current.includes(text)) return; // Already present
+
+      if (current.length > 0) {
+        textarea.value = current + ", " + text;
+      } else {
+        textarea.value = text;
+      }
+
+      if (textarea.value.length > 200) {
+        textarea.value = textarea.value.substring(0, 200);
+      }
+      if (charCounter) charCounter.innerText = `${textarea.value.length} / 200`;
+      textarea.focus();
+    }
+
+    function clearBaristaNoteInput() {
+      const textarea = document.getElementById('barista-textarea');
+      const charCounter = document.getElementById('char-counter');
+      if (textarea) {
+        textarea.value = '';
+        if (charCounter) charCounter.innerText = `0 / 200`;
+        textarea.focus();
+      }
+    }
+
+    function saveBaristaNote() {
+      const textarea = document.getElementById('barista-textarea');
+      const display = document.getElementById('barista-note-display');
+      const badge = document.getElementById('barista-note-status-badge');
+      const trigger = document.getElementById('barista-note-trigger');
+      const iconBox = document.getElementById('barista-note-icon-box');
+
+      savedBaristaNote = textarea ? textarea.value.trim() : "";
+
+      if (savedBaristaNote.length > 0) {
+        if (display) {
+          display.innerText = savedBaristaNote;
+          display.className = "font-body-sm text-body-sm text-secondary font-medium truncate";
+        }
+        if (badge) badge.classList.remove('hidden');
+        if (trigger) {
+          trigger.classList.add('border-secondary/40', 'bg-secondary-fixed/20');
+        }
+        if (iconBox) {
+          iconBox.classList.add('bg-secondary-container', 'text-on-secondary-container');
+        }
+      } else {
+        if (display) {
+          display.innerText = "Eshik kodi, harorat yoki maxsus istaklar...";
+          display.className = "font-body-sm text-body-sm text-on-surface-variant truncate";
+        }
+        if (badge) badge.classList.add('hidden');
+        if (trigger) {
+          trigger.classList.remove('border-secondary/40', 'bg-secondary-fixed/20');
+        }
+      }
+
+      closeBaristaModal();
+    }
+
+    const baristaTextarea = document.getElementById('barista-textarea');
+    if (baristaTextarea) {
+      baristaTextarea.addEventListener('input', function() {
+        if (this.value.length > 200) {
+          this.value = this.value.substring(0, 200);
+        }
+        const counter = document.getElementById('char-counter');
+        if (counter) counter.innerText = `${this.value.length} / 200`;
+      });
+    }
+
+    function selectPaymentMethod(methodKey) {
+      selectedMethod = methodKey;
+      const cards = document.querySelectorAll('.payment-card');
+      cards.forEach(card => {
+        const isCurrent = card.getAttribute('data-method') === methodKey;
+        const indicator = card.querySelector('.radio-indicator');
+        if (isCurrent) {
+          card.className = "payment-card relative p-3 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-all duration-200 flex flex-col justify-between shadow-xs select-none";
+          if (indicator) {
+            indicator.className = "radio-indicator w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center transition-all";
+            indicator.innerHTML = '<span class="material-symbols-outlined text-[13px] font-bold">check</span>';
+          }
+        } else {
+          card.className = "payment-card relative p-3 rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:border-secondary transition-all duration-200 flex flex-col justify-between cursor-pointer select-none";
+          if (indicator) {
+            indicator.className = "radio-indicator w-5 h-5 rounded-full border border-outline text-transparent flex items-center justify-center transition-all";
+            indicator.innerHTML = '<span class="material-symbols-outlined text-[13px] font-bold">check</span>';
+          }
+        }
+      });
+
+      const labelEl = document.getElementById('selected-payment-label');
+      const dockMethodEl = document.getElementById('dock-active-method-name');
+      if (labelEl) labelEl.innerText = methodNames[methodKey] + " orqali";
+      if (dockMethodEl) dockMethodEl.innerText = methodNames[methodKey];
+    }
+
+    function switchDeliveryMode(mode) {
+      const deliveryBtn = document.getElementById('tab-delivery');
+      const takeawayBtn = document.getElementById('tab-takeaway');
+
+      if (mode === 'delivery') {
+        isTakeaway = false;
+        deliveryFee = 12000;
+        deliveryBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary shadow-sm";
+        takeawayBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-primary";
+        document.getElementById('summary-delivery').innerText = "12 000 so'm";
+      } else {
+        isTakeaway = true;
+        deliveryFee = 0;
+        takeawayBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 bg-primary-container text-on-primary shadow-sm";
+        deliveryBtn.className = "flex-1 py-2 px-space-sm rounded-full flex items-center justify-center gap-space-xs font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-primary";
+        document.getElementById('summary-delivery').innerText = "Bepul (Olib ketish)";
+      }
+      updateTotals();
+    }
+
+    function adjustQty(key, delta, unitPrice) {
+      if (!quantities[key] && delta < 0) return;
+      quantities[key] = Math.max(1, (quantities[key] || 1) + delta);
+      
+      const qtyEl = document.getElementById(`qty-${key}`);
+      const priceEl = document.getElementById(`price-${key}`);
+      if (qtyEl) qtyEl.innerText = quantities[key];
+      if (priceEl) {
+        const itemSum = quantities[key] * unitPrice;
+        priceEl.innerText = itemSum.toLocaleString('uz-UZ') + " so'm";
+      }
+      updateTotals();
+    }
+
+    function removeItem(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.style.opacity = '0';
+      el.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        const key = elementId.replace('item-', '');
+        delete quantities[key];
+        el.remove();
+        updateTotals();
+      }, 200);
+    }
+
+    function updateTotals() {
+      let subtotal = 0;
+      let itemCount = 0;
+      for (const [key, qty] of Object.entries(quantities)) {
+        subtotal += qty * (prices[key] || 0);
+        itemCount += qty;
+      }
+      const finalTotal = Math.max(0, subtotal + deliveryFee - (subtotal > 0 ? discountAmount : 0));
+
+      const subtotalEl = document.getElementById('summary-subtotal');
+      const totalEl = document.getElementById('summary-total');
+      const dockTotalEl = document.getElementById('dock-total');
+      const badgeEl = document.getElementById('cart-badge');
+      const freeDelText = document.getElementById('free-delivery-text');
+      const freeDelProgress = document.getElementById('free-delivery-progress');
+
+      if (subtotalEl) subtotalEl.innerText = subtotal.toLocaleString('uz-UZ') + " so'm";
+      if (totalEl) totalEl.innerText = finalTotal.toLocaleString('uz-UZ') + " so'm";
+      if (dockTotalEl) dockTotalEl.innerText = finalTotal.toLocaleString('uz-UZ') + " so'm";
+      if (badgeEl) badgeEl.innerText = `${itemCount} ta mahsulot`;
+
+      // Free delivery progress calculation (target: 120 000 so'm)
+      const freeDeliveryTarget = 120000;
+      if (subtotal >= freeDeliveryTarget) {
+        if (freeDelText) freeDelText.innerText = "Bepul yetkazib berish faollashtirildi!";
+        if (freeDelProgress) freeDelProgress.style.width = "100%";
+      } else {
+        const remaining = freeDeliveryTarget - subtotal;
+        if (freeDelText) freeDelText.innerText = `${remaining.toLocaleString('uz-UZ')} so'm qoldi`;
+        const percentage = Math.min(100, Math.max(10, Math.round((subtotal / freeDeliveryTarget) * 100)));
+        if (freeDelProgress) freeDelProgress.style.width = `${percentage}%`;
+      }
+    }
+
+    function applyPromo() {
+      const input = document.getElementById('promo-input');
+      if (!input) return;
+      if (input.value.trim().toUpperCase() === 'BAHOR20') {
+        discountAmount = 10000;
+        updateTotals();
+        alert("Promokod tasdiqlandi: 10 000 so'm chegirma!");
+      } else {
+        alert("Noto'g'ri promokod kiritildi");
+      }
+    }
+
+    /* --- SLIDE TO PAY ROBUST INTERACTIVE ENGINE --- */
+    let isDragging = false;
+    let startClientX = 0;
+    let currentX = 0;
+    let maxSlide = 0;
+    let orderCompleted = false;
+    let hasMoved = false;
+
+    const track = document.getElementById('slider-track');
+    const knob = document.getElementById('slider-knob');
+    const fill = document.getElementById('slider-fill');
+    const labelWrap = document.getElementById('slider-text-wrap');
+    const knobIcon = document.getElementById('knob-icon');
+    const sliderLabel = document.getElementById('slider-label');
+    const sliderArrows = document.getElementById('slider-arrows');
+
+    function calculateMaxSlide() {
+      if (!track || !knob) return 200;
+      const trackRect = track.getBoundingClientRect();
+      const knobRect = knob.getBoundingClientRect();
+      return Math.max(40, trackRect.width - knobRect.width - 12);
+    }
+
+    function triggerHaptic() {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([40, 30, 80]);
+        } catch (e) {}
+      }
+    }
+
+    function startDrag(clientX) {
+      if (orderCompleted) return;
+      isDragging = true;
+      hasMoved = false;
+      startClientX = clientX;
+      maxSlide = calculateMaxSlide();
+      knob.style.transition = 'none';
+      fill.style.transition = 'none';
+    }
+
+    function moveDrag(clientX) {
+      if (!isDragging || orderCompleted) return;
+      const delta = clientX - startClientX;
+      if (Math.abs(delta) > 4) {
+        hasMoved = true;
+      }
+      currentX = Math.max(0, Math.min(delta, maxSlide));
+
+      const progress = maxSlide > 0 ? (currentX / maxSlide) : 0;
+      knob.style.transform = `translateX(${currentX}px)`;
+      fill.style.width = `${currentX + 54}px`;
+
+      if (labelWrap) {
+        labelWrap.style.opacity = `${Math.max(0, 1 - progress * 1.6)}`;
+      }
+
+      if (progress >= 0.65) {
+        knob.classList.add('bg-[#10b981]');
+        knob.classList.remove('bg-primary');
+      } else {
+        knob.classList.remove('bg-[#10b981]');
+        knob.classList.add('bg-primary');
+      }
+    }
+
+    function endDrag() {
+      if (!isDragging || orderCompleted) return;
+      isDragging = false;
+      const progress = maxSlide > 0 ? (currentX / maxSlide) : 0;
+
+      if (progress >= 0.65) {
+        triggerSuccessSlide();
+      } else if (!hasMoved) {
+        triggerSuccessSlide();
+      } else {
+        snapBack();
+      }
+    }
+
+    function snapBack() {
+      knob.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      fill.style.transition = 'width 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      knob.style.transform = 'translateX(0px)';
+      fill.style.width = '56px';
+      if (labelWrap) labelWrap.style.opacity = '1';
+      knob.classList.remove('bg-[#10b981]');
+      knob.classList.add('bg-primary');
+      currentX = 0;
+    }
+
+    function triggerSuccessSlide() {
+      if (orderCompleted) return;
+      orderCompleted = true;
+      triggerHaptic();
+      maxSlide = calculateMaxSlide();
+
+      knob.style.transition = 'transform 0.32s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease';
+      fill.style.transition = 'width 0.32s cubic-bezier(0.25, 1, 0.5, 1)';
+      knob.style.transform = `translateX(${maxSlide}px)`;
+      fill.style.width = '100%';
+
+      knob.classList.remove('bg-primary');
+      knob.classList.add('bg-[#10b981]');
+      if (knobIcon) {
+        knobIcon.innerText = 'check';
+        knobIcon.classList.add('scale-110');
+      }
+
+      if (sliderArrows) {
+        sliderArrows.style.display = 'none';
+      }
+
+      if (sliderLabel) {
+        sliderLabel.innerText = "Buyurtma qabul qilindi!";
+        sliderLabel.className = 'text-[12px] font-bold text-[#059669] truncate';
+        if (labelWrap) {
+          labelWrap.style.opacity = '1';
+        }
+      }
+
+      setTimeout(() => {
+        openSuccessModal();
+      }, 400);
+    }
+
+    function openSuccessModal() {
+      const modal = document.getElementById('order-success-modal');
+      const card = document.getElementById('modal-card');
+      const modalMethod = document.getElementById('modal-payment-method');
+      const modalTotal = document.getElementById('modal-total-amount');
+      const dockTotalEl = document.getElementById('dock-total');
+
+      if (modalMethod) {
+        modalMethod.innerHTML = `<span class="w-2 h-2 rounded-full bg-secondary"></span> ${methodNames[selectedMethod]}`;
+      }
+      if (modalTotal && dockTotalEl) {
+        modalTotal.innerText = dockTotalEl.innerText;
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      card.classList.remove('translate-y-8');
+    }
+
+    function closeSuccessModal() {
+      const modal = document.getElementById('order-success-modal');
+      const card = document.getElementById('modal-card');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.add('translate-y-8');
+    }
+
+    function resetCartDemo() {
+      closeSuccessModal();
+      setTimeout(() => {
+        orderCompleted = false;
+        snapBack();
+        if (knobIcon) {
+          knobIcon.innerText = 'arrow_forward';
+          knobIcon.classList.remove('scale-110');
+        }
+        if (sliderArrows) {
+          sliderArrows.style.display = 'flex';
+        }
+        if (sliderLabel) {
+          sliderLabel.innerText = "SURING VA TASDIQLANG";
+          sliderLabel.className = 'text-[12px] font-bold text-primary/80 truncate';
+        }
+      }, 300);
+    }
+
+    // Touch event listeners
+    if (knob && track) {
+      knob.addEventListener('touchstart', function(e) {
+        if (e.touches.length > 0) {
+          startDrag(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', function(e) {
+        if (isDragging && e.touches.length > 0) {
+          if (e.cancelable) e.preventDefault();
+          moveDrag(e.touches[0].clientX);
+        }
+      }, { passive: false });
+
+      window.addEventListener('touchend', function() {
+        if (isDragging) endDrag();
+      }, { passive: true });
+
+      window.addEventListener('touchcancel', function() {
+        if (isDragging) snapBack();
+      }, { passive: true });
+
+      // Mouse event listeners for desktop
+      knob.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        startDrag(e.clientX);
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+          e.preventDefault();
+          moveDrag(e.clientX);
+        }
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (isDragging) endDrag();
+      });
+
+      // Track tap / click fallback
+      track.addEventListener('click', function(e) {
+        if (orderCompleted) return;
+        triggerSuccessSlide();
+      });
+    }
+
+    // Close modal when clicking outside sheet
+    const baristaModalBg = document.getElementById('barista-modal');
+    if (baristaModalBg) {
+      baristaModalBg.addEventListener('click', function(e) {
+        if (e.target === baristaModalBg) {
+          closeBaristaModal();
+        }
+      });
+    }
+
+    // Initial calculation
+    updateTotals();
+  </script>
+</body></html>
