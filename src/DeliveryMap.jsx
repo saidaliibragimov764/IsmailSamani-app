@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {MapPin, Navigation} from 'lucide-react';
 
 const apiKey = import.meta.env.VITE_YANDEX_MAPS_API_KEY;
@@ -16,6 +16,8 @@ function loadYandex() {
 }
 
 export default function DeliveryMap({location, onChange}) {
+  // Ignore malformed data left in browser storage instead of breaking the cart.
+  if (!location || !Number.isFinite(location.lat) || !Number.isFinite(location.lng) || Math.abs(location.lat) > 90 || Math.abs(location.lng) > 180) location = null;
   const container = useRef(null), map = useRef(null), marker = useRef(null), onChangeRef = useRef(onChange);
   const [error, setError] = useState(''), [loading, setLoading] = useState(false);
   onChangeRef.current = onChange;
