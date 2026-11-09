@@ -1,63 +1,74 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {MapPin, Navigation} from 'lucide-react';
+import 'leaflet/dist/leaflet.css';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import {validLocation} from './orderApi';
 
-const apiKey = import.meta.env.VITE_YANDEX_MAPS_API_KEY;
-let mapScript;
-function loadYandex() {
-  if (window.ymaps) return Promise.resolve(window.ymaps);
-  if (!mapScript) mapScript = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://api-maps.yandex.ru/2.1/?apikey=${encodeURIComponent(apiKey)}&lang=ru_RU`;
-    script.onload = () => window.ymaps ? window.ymaps.ready(() => resolve(window.ymaps)) : reject(new Error('Xarita yuklanmadi'));
-    script.onerror = () => reject(new Error('Xarita yuklanmadi'));
-    document.head.appendChild(script);
-  }).catch(error => { mapScript = null; throw error; });
-  return mapScript;
-}
-
-export default function DeliveryMap({location, onChange}) {
-  // Ignore malformed data left in browser storage instead of breaking the cart.
-  if (!location || !Number.isFinite(location.lat) || !Number.isFinite(location.lng) || Math.abs(location.lat) > 90 || Math.abs(location.lng) > 180) location = null;
-  const container = useRef(null), map = useRef(null), marker = useRef(null), onChangeRef = useRef(onChange);
+export default function DeliveryMap({location, onChange, readOnly = false}) {
+  const selected = validLocation(location) ? location : null;
+  const container = useRef(null), map = useRef(null), marker = useRef(null), leaflet = useRef(null), onChangeRef = useRef(onChange), locationRef = useRef(selected);
   const [error, setError] = useState(''), [loading, setLoading] = useState(false);
   onChangeRef.current = onChange;
+  locationRef.current = selected;
+
   useEffect(() => {
-    if (!apiKey || !container.current) return;
     let cancelled = false;
-    loadYandex().then(ymaps => {
-      if (cancelled) return;
-      const initial = location ? [location.lat, location.lng] : [41.2995, 69.2401];
-      map.current = new ymaps.Map(container.current, {center: initial, zoom: 13, controls: ['zoomControl', 'geolocationControl']});
-      marker.current = new ymaps.Placemark(initial, {}, {preset: 'islands#redDotIcon', draggable: true});
-      if (location) map.current.geoObjects.add(marker.current);
-      const select = coords => {
-        marker.current.geometry.setCoordinates(coords);
-        if (!map.current.geoObjects.contains(marker.current)) map.current.geoObjects.add(marker.current);
-        onChangeRef.current({lat: coords[0], lng: coords[1]});
+    import('leaflet').then(module => {
+      if (cancelled || !container.current) return;
+      const L = module.default || module;
+      leaflet.current = L;
+      const initial = locationRef.current;
+      const instance = L.map(container.current, {scrollWheelZoom: false}).setView(initial ? [initial.lat, initial.lng] : [41.2995, 69.2401], initial ? 16 : 13);
+      map.current = instance;
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(instance);
+      const icon = L.icon({iconUrl: markerIcon, iconRetinaUrl: markerIcon2x, shadowUrl: markerShadow, iconSize: [25, 41], iconAnchor: [12, 41], shadowSize: [41, 41]});
+      const select = latlng => {
+        if (!marker.current) {
+          marker.current = L.marker(latlng, {icon, draggable: !readOnly}).addTo(instance);
+          if (!readOnly) marker.current.on('dragend', () => {
+            const point = marker.current.getLatLng();
+            onChangeRef.current?.({lat: point.lat, lng: point.lng});
+          });
+        } else marker.current.setLatLng(latlng);
       };
-      map.current.events.add('click', event => select(event.get('coords')));
-      marker.current.events.add('dragend', () => select(marker.current.geometry.getCoordinates()));
-    }).catch(() => { if (!cancelled) setError('Yandex xaritasi yuklanmadi. Internet yoki API kalitini tekshiring.'); });
-    return () => {cancelled = true; if (map.current) map.current.destroy(); map.current = null; marker.current = null;};
-  }, []);
+      if (initial) select([initial.lat, initial.lng]);
+      if (!readOnly) instance.on('click', event => {
+        select(event.latlng);
+        onChangeRef.current?.({lat: event.latlng.lat, lng: event.latlng.lng});
+      });
+      instance._setDeliveryMarker = select;
+    }).catch(() => {if (!cancelled) setError('Xarita yuklanmadi. Internet aloqasini tekshiring.');});
+    return () => {cancelled = true; map.current?.remove(); map.current = null; marker.current = null; leaflet.current = null;};
+  }, [readOnly]);
+
   useEffect(() => {
-    if (!location || !map.current || !marker.current) return;
-    const coords = [location.lat, location.lng];
-    marker.current.geometry.setCoordinates(coords);
-    if (!map.current.geoObjects.contains(marker.current)) map.current.geoObjects.add(marker.current);
-    map.current.setCenter(coords, 16);
-  }, [location]);
+    if (!selected || !map.current) return;
+    const coords = [selected.lat, selected.lng];
+    map.current._setDeliveryMarker(coords);
+    // Map clicks and drags should not jump or reset the user's zoom.
+  }, [selected?.lat, selected?.lng]);
+
   const locate = () => {
     if (!navigator.geolocation) {setError('Qurilmangiz joylashuvni aniqlashni qo‘llamaydi.');return;}
     setLoading(true); setError('');
-    navigator.geolocation.getCurrentPosition(({coords}) => {onChange({lat:coords.latitude,lng:coords.longitude});setLoading(false);}, () => {setLoading(false);setError('Joylashuvga ruxsat berilmadi yoki uni aniqlab bo‘lmadi.');}, {enableHighAccuracy:true,timeout:15000});
+    navigator.geolocation.getCurrentPosition(({coords}) => {
+      const point = {lat: coords.latitude, lng: coords.longitude};
+      if (validLocation(point)) {
+        onChangeRef.current?.(point);
+        map.current?.setView([point.lat, point.lng], 16);
+      } else setError('Joylashuvni aniqlab bo‘lmadi.');
+      setLoading(false);
+    }, error => {setLoading(false);setError(error.code === 1 ? 'Joylashuvga ruxsat berilmadi. Xaritadan joyni o‘zingiz tanlashingiz mumkin.' : 'Joylashuvni aniqlab bo‘lmadi. Qayta urinib ko‘ring yoki xaritadan tanlang.');}, {enableHighAccuracy:true,timeout:15000});
   };
-  const point = location ? `${location.lng},${location.lat}` : '69.2401,41.2995';
-  return <div className="location-card"><div className="location-heading"><MapPin size={19}/><div><b>Yetkazib berish manzili</b><small>{apiKey?'Xaritada nuqtani belgilang yoki joylashuvingizni aniqlang':'Joriy joylashuvingizni belgilang'}</small></div></div>
-    {apiKey ? <div ref={container} className="delivery-map" aria-label="Yetkazib berish joyini tanlash uchun Yandex xaritasi"/> : <iframe className="delivery-map" title="Yandex xaritasi" src={`https://yandex.com/map-widget/v1/?ll=${point}&z=15${location?`&pt=${point},pm2rdm`:''}`} loading="lazy"/>}
-    <button type="button" className="locate-btn" onClick={locate} disabled={loading}><Navigation size={16}/>{loading?'Aniqlanmoqda...':'Mening joylashuvimni aniqlash'}</button>
-    {location ? <p className="location-status">Belgilangan: {location.lat.toFixed(5)}, {location.lng.toFixed(5)}</p> : <p className="location-status">Manzil hali belgilanmagan.</p>}
-    {!apiKey&&<p className="location-hint">Xaritada istalgan nuqtani belgilash uchun Yandex Maps API kaliti kerak.</p>}
+  return <div className="location-card"><div className="location-heading"><MapPin size={19}/><div><b>Yetkazib berish manzili</b><small>{readOnly?'Buyurtmadagi joylashuv':'Xaritaga bosing yoki belgini surib joyni tanlang'}</small></div></div>
+    <div ref={container} className="delivery-map" aria-label="Yetkazib berish joyi xaritasi"/>
+    {!readOnly && <button type="button" className="locate-btn" onClick={locate} disabled={loading}><Navigation size={16}/>{loading?'Aniqlanmoqda...':'Mening joylashuvimni aniqlash'}</button>}
+    {selected ? <p className="location-status">Belgilangan: {selected.lat.toFixed(5)}, {selected.lng.toFixed(5)}</p> : <p className="location-status">Manzil hali belgilanmagan.</p>}
     {error&&<p className="location-error" role="alert">{error}</p>}
   </div>;
 }
