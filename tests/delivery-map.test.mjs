@@ -3,15 +3,16 @@ import assert from 'node:assert/strict';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
+import { searchAddress } from '../src/addressSearch.js';
 
 const vite = await createServer({ server: { middlewareMode: true }, appType: 'custom', optimizeDeps: { noDiscovery: true, include: [] } });
 after(() => vite.close());
 const { default: DeliveryMap } = await vite.ssrLoadModule('/src/DeliveryMap.jsx');
 
 for (const [name, location, expected] of [
-  ['no location', null, 'Manzil hali belgilanmagan'],
+  ['no location', null, 'Manzil belgilanmagan'],
   ['saved location', {lat: 41.3, lng: 69.2}, '41.30000'],
-  ['invalid saved location', {lat: 'bad', lng: 69.2}, 'Manzil hali belgilanmagan'],
+  ['invalid saved location', {lat: 'bad', lng: 69.2}, 'Manzil belgilanmagan'],
 ]) {
   test(`delivery map renders with ${name}`, () => {
     const html = renderToString(React.createElement(DeliveryMap, {location, onChange: () => {}}));
@@ -39,4 +40,15 @@ test('does not report success when backend fails or returns no acknowledgement',
   await assert.rejects(sendOrder(order, '/api/orders', async () => ({ok: false})));
   await assert.rejects(sendOrder(order, '/api/orders', async () => ({ok: true, json: async () => ({})})));
   await assert.rejects(sendOrder({delivery: {}}, '/api/orders', async () => {throw new Error('should not call');}), /xaritada/);
+});
+
+test('searches Uzbekistan addresses only on explicit request', async () => {
+  let url;
+  const places = await searchAddress('  Amir Temur  ', {fetchImpl: async value => {url = value; return {ok:true,json:async()=>[{place_id:1,display_name:'Toshkent',lat:'41.3',lon:'69.2'},{place_id:2,display_name:'Invalid',lat:'no',lon:'69'}]};}});
+  assert.equal(new URL(url).searchParams.get('q'), 'Amir Temur');
+  assert.equal(new URL(url).searchParams.get('countrycodes'), 'uz');
+  assert.deepEqual(places, [{id:'1',name:'Toshkent',lat:41.3,lng:69.2}]);
+});
+test('handles address search failures', async () => {
+  await assert.rejects(searchAddress('Toshkent', {fetchImpl:async()=>({ok:false})}));
 });
