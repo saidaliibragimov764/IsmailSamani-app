@@ -1,20 +1,22 @@
 # Ismail Samani
 
-React va Vite yordamida tayyorlangan mobil veb-ilova prototipi. Ekranlar sahifa qayta yuklanmasdan almashadi. Savatcha va namunaviy buyurtmalar brauzerda saqlanadi.
+React va Vite yordamida tayyorlangan mobil veb-ilova prototipi.
 
 ## Ishga tushirish
 
 ```bash
 npm install
 npm run dev
+npm run build
+node --test tests/delivery-map.test.mjs
 ```
 
-Production: `npm run build` (Vercel Vite frameworkini avtomatik aniqlaydi). `dist` build papkasi.
+Vercel uchun `dist` build papkasi. Xarita Leaflet va OpenStreetMap asosida, API kaliti talab qilmaydi. Xaritaga bosib yoki belgini surib manzil tanlanadi; joriy joylashuv uchun HTTPS va foydalanuvchi ruxsati talab qilinadi. OpenStreetMap plitkalari internet talab qiladi va ularning [foydalanish siyosati](https://operations.osmfoundation.org/policies/tiles/)ga rioya qilish kerak; katta trafikda mos xarita provayderidan foydalaning.
 
-Bu demo: to‘lov, yetkazib berish va buyurtmalar serverga ulanmagan. Mahsulot rasmlari va shriftlari internetdan yuklanadi.
+## Buyurtmalar va backend
 
-## Yandex xaritasi va akkaunt
+Loyihada hozircha backend, admin panel, kuryer interfeysi va haqiqiy to'lov mavjud emas. `VITE_ORDERS_API_URL` belgilanmagan bo'lsa, buyurtmalar faqat foydalanuvchi brauzerida namuna sifatida saqlanadi, hech kimga yuborilmaydi. Manzil ham brauzerda saqlanadi. Foydalanuvchi ma'lumotlarini umumiy qurilmada saqlashdan ehtiyot bo'ling.
 
-`VITE_YANDEX_MAPS_API_KEY` muhit o'zgaruvchisiga Yandex Maps JavaScript API 2.1 kalitini kiriting (Vercel'da ham qo'shib qayta deploy qiling). Shunda xaritada bosish yoki belgini surish orqali manzil tanlanadi. Kalitsiz joriy joylashuvni belgilash va Yandex xaritasida ko'rish mavjud. Joylashuv va demo xabarlar faqat brauzerda saqlanadi, serverga yuborilmaydi.
+Backend yaratilgach `VITE_ORDERS_API_URL` ni bir xil origin ostidagi buyurtma endpointiga, masalan `/api/orders` ga sozlab, qayta build qiling. Frontend POST JSON yuboradi: `id`, `createdAt`, `items` (id, name, qty, price, variant), `paymentMethod`, `baristaNote`, `subtotal`, `deliveryFee`, `total` va `delivery` (`location: {lat, lng}`, `apartment`, `entrance`, `floor`, `comment`). Endpoint muvaffaqiyatda JSON `{ "id": "server-buyurtma-id" }` va 2xx qaytarishi kerak; xatoda savatcha saqlanadi. Backend narxlarni qayta hisoblash, ma'lumotlarni tekshirish, takroriy yuborishni bartaraf etish, maxfiy ma'lumotlarni himoyalash va autentifikatsiya/avtorizatsiya uchun mas'ul. To'lov integratsiyasi alohida kerak.
 
-Akkauntga kirish sahifasi hozircha ulanish haqida ma'lumot beradi: haqiqiy autentifikatsiya uchun kirish usuli, backend va tegishli provayder sozlamalari kerak.
+`src/OrderLocation.jsx` kelajakdagi himoyalangan admin/kuryer buyurtma tafsilotlarida qayta ishlatilishi mumkin: koordinatalarni xaritada ko'rsatadi va Yandex/Google navigatsiya havolalarini yaratadi. Hozir u faqat shu brauzerdagi buyurtmalar tarixida ishlaydi; bu admin yoki kuryerga buyurtma yuborilganini anglatmaydi.
