@@ -11,7 +11,7 @@ export default function DeliveryMap({location, onChange, readOnly = false}) {
   const selected = validLocation(location) ? location : null;
   const container = useRef(null), map = useRef(null), marker = useRef(null), onChangeRef = useRef(onChange), locationRef = useRef(selected);
   const alive = useRef(false), selectionVersion = useRef(0), searchRequest = useRef(null);
-  const [error, setError] = useState(''), [loading, setLoading] = useState(false);
+  const [error, setError] = useState(''), [mapError, setMapError] = useState(''), [loading, setLoading] = useState(false);
   const [query, setQuery] = useState(''), [results, setResults] = useState([]), [searching, setSearching] = useState(false), [searchError, setSearchError] = useState('');
   onChangeRef.current = onChange;
   locationRef.current = selected;
@@ -30,17 +30,14 @@ export default function DeliveryMap({location, onChange, readOnly = false}) {
       const instance = L.map(container.current, {scrollWheelZoom: true, zoomControl: false, dragging: true, touchZoom: true, doubleClickZoom: true, tapHold: false}).setView(initial ? [initial.lat, initial.lng] : [41.2995, 69.2401], initial ? 16 : 13);
       map.current = instance;
       L.control.zoom({position: 'bottomright'}).addTo(instance);
-      const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-      const tiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd', maxZoom: 19, attribution
+      // CARTO may return an API-key watermark as a successful image, so a
+      // tileerror fallback cannot detect it. Use the keyless OSM tiles directly.
+      const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(instance);
-      // If the styled tile provider is unavailable, retain a usable OSM map.
-      tiles.once('tileerror', () => {
-        if (!map.current) return;
-        instance.removeLayer(tiles);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(instance);
+      tiles.on('tileerror', () => {
+        if (!cancelled) setMapError('Xaritaning ayrim qismlari yuklanmadi. Internet aloqasini tekshiring.');
       });
       const icon = L.icon({iconUrl: markerIcon, iconRetinaUrl: markerIcon2x, shadowUrl: markerShadow, iconSize: [25, 41], iconAnchor: [12, 41], shadowSize: [41, 41]});
       const select = latlng => {
@@ -65,7 +62,7 @@ export default function DeliveryMap({location, onChange, readOnly = false}) {
         setResults([]);
       });
       instance._setDeliveryMarker = select;
-    }).catch(() => {if (!cancelled) setError('Xarita yuklanmadi. Internet aloqasini tekshiring.');});
+    }).catch(() => {if (!cancelled) setMapError('Xarita yuklanmadi. Internet aloqasini tekshiring.');});
     return () => {cancelled = true; map.current?.remove(); map.current = null; marker.current = null;};
   }, [readOnly]);
 
@@ -135,6 +132,7 @@ export default function DeliveryMap({location, onChange, readOnly = false}) {
     <div className="map-frame"><div ref={container} className="delivery-map" aria-label="Yetkazib berish joyi xaritasi"/>{!readOnly&&<div className="map-tip"><LocateFixed size={14}/> Ikki barmoq bilan yaqinlashtiring</div>}</div>
     {!readOnly && <button type="button" className="locate-btn" onClick={()=>locate()} disabled={loading}><Navigation size={17}/>{loading?'Joylashuv aniqlanmoqda...':'Mening joylashuvimni aniqlash'}</button>}
     <div className={'location-status-row '+(selected?'is-selected':'')}><span className="location-status-icon"><MapPin size={16}/></span><div><b>{selected?'Manzil belgilandi':'Manzil belgilanmagan'}</b><p>{selected?`${selected.lat.toFixed(5)}, ${selected.lng.toFixed(5)}`:'Xaritadan joyni tanlang'}</p></div></div>
+    {mapError&&<div className="location-error" role="status"><span>{mapError}</span><button type="button" aria-label="Xarita xabarini yopish" onClick={()=>setMapError('')}><X size={16}/></button></div>}
     {error&&<div className={'location-error '+(selected?'location-error-soft':'')} role="status"><span>{selected?'Joylashuv aniqlanmadi. Xaritada belgilangan manzildan foydalanishingiz mumkin.':error}</span><button type="button" aria-label="Xabarni yopish" onClick={()=>setError('')}><X size={16}/></button></div>}
   </div>;
 }
